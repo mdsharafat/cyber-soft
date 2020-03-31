@@ -17,3 +17,13 @@ Route::get('/', 'Frontend\FrontendController@index');
 Route::get('/posts', 'Frontend\FrontendController@posts');
 Route::get('/single-post', 'Frontend\FrontendController@singlePost');
 Route::get('/projects', 'Frontend\FrontendController@projects');
+
+Route::group(['prefix' => 'C127Wp-aqlg-SZ'], function() {
+    Auth::routes([
+        'register' => false,
+        'verify' => true,
+        'reset' => false
+    ]);
+});
+
+Route::get('/dashboard', 'Admin\AdminController@index');

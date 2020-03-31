@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-          <title>cyberSoft</title>
+          <title>CyberSoft</title>
         @include('layouts.frontend.includes.meta')
         @include('layouts.frontend.includes.css')
         @yield('header-script')
