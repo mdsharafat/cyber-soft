@@ -16,7 +16,7 @@ class NecessaryTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         $user           = new User;
-        $user->name     = 'mdsharafat';
+        $user->name     = 'Mohammad Sharafat Hossain';
         $user->email    = 'sharafat.sohan047@gmail.com';
         $user->password = Hash::make('Snkadw)#@psgHS8@');
         $user->save();

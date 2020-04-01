@@ -212,6 +212,7 @@
                                         Sharafat Hossain</small>
                                 <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
                                             Find</a></h3>
+                                <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
                                 <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
                             </div>
                         </div>
@@ -227,6 +228,7 @@
                                         Sharafat Hossain</small>
                                 <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
                                             Find</a></h3>
+                                <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
                                 <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
                             </div>
                         </div>
@@ -242,6 +244,7 @@
                                         Sharafat Hossain</small>
                                 <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
                                             Find</a></h3>
+                                <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
                                 <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
                             </div>
                         </div>
@@ -257,6 +260,7 @@
                                         Sharafat Hossain</small>
                                 <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
                                             Find</a></h3>
+                                <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
                                 <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
                             </div>
                         </div>

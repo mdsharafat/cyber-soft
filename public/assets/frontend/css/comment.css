@@ -1,0 +1,78 @@
+.comment-wrapper .panel-body {
+    overflow:auto;
+}
+
+.comment-wrapper .media-list .media img {
+    width:64px;
+    height:64px;
+    border:2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    padding-bottom: 10px;
+    border-bottom:1px dashed #efefef;
+    margin-bottom:25px;
+}
+
+.panel-info {
+    border: 0px;
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+}
+
+  #comment-form .form-control {
+    border: 0;
+    border-radius: 0px;
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+    color: rgba(20,20,20,0.5);
+    margin-bottom: 15px;
+    padding-left: 8px;
+  }
+
+  #comment-form input,
+  #comment-form select {
+    height: 55px;
+  }
+
+  #comment-form select {
+    color: rgba(20,20,20,0.5);
+  }
+
+  #comment-form input[type='submit'] {
+    background: #ce3232;
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  #file-upload {
+	 position: absolute;
+	 left: -9999px;
+}
+ label[for="file-upload"] {
+    background: #02bdd5;
+    border: 0;
+    border-radius: 0px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: normal;
+    padding: 18px 30px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    height: 55px;
+    margin: 0px;
+}
+ label[for="file-upload"]:hover {
+	 background: #ce3232;
+}
+ #filename {
+	padding: 20px;
+    float: left;
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #ffffff;
+    height: 55px;
+    border-radius: 0px;
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+    color: rgba(20,20,20,0.5);
+}

@@ -50,63 +50,131 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-sm-12">
                                 <div class="media blog-thumb">
-                                        <div class="media-body blog-info">
-                                            <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                                            <h3><a href="blog-detail.html">How To Find Out Beautiful
-                                                    Workspace.</a></h3>
-                                            <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                            <a href="blog-detail.html" class="btn section-btn">Read article</a>
-                                        </div>
+                                    <div class="media-body blog-info">
+                                        <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
+                                                2017</small>
+                                        <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
+                                                Mohammad
+                                                Sharafat Hossain</small>
+                                        <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
+                                                    Find</a></h3>
+                                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                        <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-sm-12">
                                 <div class="media blog-thumb">
-                                        <div class="media-body blog-info">
-                                            <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                                            <h3><a href="blog-detail.html">How To Find Out Beautiful
-                                                    Workspace.</a></h3>
-                                            <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                            <a href="blog-detail.html" class="btn section-btn">Read article</a>
-                                        </div>
+                                    <div class="media-body blog-info">
+                                        <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
+                                                2017</small>
+                                        <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
+                                                Mohammad
+                                                Sharafat Hossain</small>
+                                        <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
+                                                    Find</a></h3>
+                                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                        <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-sm-12">
                                 <div class="media blog-thumb">
-                                        <div class="media-body blog-info">
-                                            <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                                            <h3><a href="blog-detail.html">How To Find Out Beautiful
-                                                    Workspace.</a></h3>
-                                            <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                            <a href="blog-detail.html" class="btn section-btn">Read article</a>
-                                        </div>
+                                    <div class="media-body blog-info">
+                                        <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
+                                                2017</small>
+                                        <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
+                                                Mohammad
+                                                Sharafat Hossain</small>
+                                        <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
+                                                    Find</a></h3>
+                                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                        <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-sm-12">
                                 <div class="media blog-thumb">
-                                        <div class="media-body blog-info">
-                                            <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                                            <h3><a href="blog-detail.html">How To Find Out Beautiful
-                                                    Workspace.</a></h3>
-                                            <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                            <a href="blog-detail.html" class="btn section-btn">Read article</a>
-                                        </div>
+                                    <div class="media-body blog-info">
+                                        <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
+                                                2017</small>
+                                        <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
+                                                Mohammad
+                                                Sharafat Hossain</small>
+                                        <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
+                                                    Find</a></h3>
+                                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                        <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-sm-12">
                                 <div class="media blog-thumb">
-                                        <div class="media-body blog-info">
-                                            <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                                            <h3><a href="blog-detail.html">How To Find Out Beautiful
-                                                    Workspace.</a></h3>
-                                            <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                            <a href="blog-detail.html" class="btn section-btn">Read article</a>
-                                        </div>
+                                    <div class="media-body blog-info">
+                                        <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
+                                                2017</small>
+                                        <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
+                                                Mohammad
+                                                Sharafat Hossain</small>
+                                        <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
+                                                    Find</a></h3>
+                                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                        <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="media blog-thumb">
+                                    <div class="media-body blog-info">
+                                        <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
+                                                2017</small>
+                                        <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
+                                                Mohammad
+                                                Sharafat Hossain</small>
+                                        <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
+                                                    Find</a></h3>
+                                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                        <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="media blog-thumb">
+                                    <div class="media-body blog-info">
+                                        <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
+                                                2017</small>
+                                        <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
+                                                Mohammad
+                                                Sharafat Hossain</small>
+                                        <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
+                                                    Find</a></h3>
+                                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                        <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12">
+                                <div class="media blog-thumb">
+                                    <div class="media-body blog-info">
+                                        <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
+                                                2017</small>
+                                        <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
+                                                Mohammad
+                                                Sharafat Hossain</small>
+                                        <h3><a href="{{ url('/single-post') }}">How To Find Out Beautiful Workspace. How To
+                                                    Find</a></h3>
+                                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                        <a href="{{ url('/single-post') }}" class="btn section-btn">Read article</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
