@@ -1182,6 +1182,10 @@ ul.notika-menu-wrap li a{
 	box-shadow:none;
 	outline:none;
 }
+
+.btn {
+    border-radius: 0px;
+}
 /*----------------------------------------*/
 /*  17.  Widget tabs CSS
 /*----------------------------------------*/

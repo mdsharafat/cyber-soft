@@ -1,0 +1,5 @@
+%%formFieldsHtml%%
+
+<div class="form-example-int">
+    <button class="btn btn-success notika-btn-success waves-effect" type="submit">{{ $formMode === 'edit' ? 'Update' : 'Create' }}</button>
+</div>

@@ -3,6 +3,9 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\CompanyProfile;
+use App\Skill;
+use App\Service;
 
 class NecessaryTableSeeder extends Seeder
 {
@@ -15,10 +18,66 @@ class NecessaryTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
+        // user table
         $user           = new User;
         $user->name     = 'Mohammad Sharafat Hossain';
         $user->email    = 'sharafat.sohan047@gmail.com';
         $user->password = Hash::make('Snkadw)#@psgHS8@');
         $user->save();
+
+        // company profile table
+        $companyProfile = new CompanyProfile;
+        $companyProfile->name      = 'CyberSoft';
+        $companyProfile->moto      = 'We Provide Complete Web Application Solution';
+        $companyProfile->email     = 'info@cybersoftbd.net';
+        $companyProfile->phone     = '+8801787689983';
+        $companyProfile->intro     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.';
+        $companyProfile->logo      = null;
+        $companyProfile->pro_pic   = 'pro_pic.jpg';
+        $companyProfile->location  = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945';
+        $companyProfile->address   = 'Wabda road, Post office para, Sabira villa, Chuadanga';
+        $companyProfile->copyright = '2020 All right reserved.';
+        $companyProfile->fb_link   = null;
+        $companyProfile->tw_link   = null;
+        $companyProfile->ln_link   = null;
+        $companyProfile->vb_link   = null;
+        $companyProfile->wa_link   = null;
+        $companyProfile->sk_link   = null;
+        $companyProfile->save();
+
+        //skills table
+        $skillArray = [
+            0 => ['UX/UI Design', 80], 
+            1 => ['Javascript/Jquery/ReactJs', 60], 
+            2 => ['Php/Laravel', 70],
+            3 => ['Wordpress', 70],
+            4 => ['Technical content writing', 60],
+            5 => ['Search Engine Optimization', 80],
+            6 => ['Linux/Windows OS', 80],
+            7 => ['Database', 80],
+        ];
+        
+        foreach($skillArray as $key => $value){
+            $skill = new Skill;
+            $skill->name = $value[0];
+            $skill->progress = $value[1];
+            $skill->save();
+        }
+
+        //services table
+        $serviceArray = [
+            'UX/UI Design', 
+            'Web Application with Laravel', 
+            'Wordpress Theme Customization',
+            'Wordpress Theme Development',
+            'Wordpress Plugins Development',
+            'Search Engine Optimization'
+        ];
+
+        foreach($serviceArray as $key => $value){
+            $service = new Service;
+            $service->name = $value;
+            $service->save();
+        }
     }
 }

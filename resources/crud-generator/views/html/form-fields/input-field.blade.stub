@@ -1,0 +1,8 @@
+<div class="form-example-int form-example-st">
+    <div class="nk-int-st">
+        <label for="%%itemName%%" class="control-label">{{ '%%itemName%%' }}</label>
+        <input class="form-control" name="%%itemName%%" type="%%fieldType%%" id="%%itemName%%" value="{{ isset($%%crudNameSingular%%->%%itemName%%) ? $%%crudNameSingular%%->%%itemName%% : ''}}" %%required%%>
+        {!! $errors->first('%%itemName%%', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+

@@ -27,3 +27,9 @@ Route::group(['prefix' => 'C127Wp-aqlg-SZ'], function() {
 });
 
 Route::get('/dashboard', 'Admin\AdminController@index');
+
+Route::resource('admin/skills', 'Admin\\SkillsController');
+Route::resource('admin/services', 'Admin\\ServicesController');
+Route::get('/admin/company-profile', 'Admin\CompanyProfileController@index');
+Route::get('/admin/company-profile/edit', 'Admin\CompanyProfileController@edit');
+Route::PATCH('/admin/company-profile/update', 'Admin\CompanyProfileController@update');
