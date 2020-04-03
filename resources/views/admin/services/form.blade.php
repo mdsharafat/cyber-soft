@@ -1,11 +1,9 @@
 <div class="row">
     <div class="col-md-6">
-        <div class="form-example-int form-example-st">
-            <div class="nk-int-st">
-                <label for="name" class="control-label">{{ 'Name' }}</label>
-                <input class="form-control" name="name" type="text" id="name" value="{{ isset($service->name) ? $service->name : ''}}" >
-                {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
-            </div>
+        <div class="nk-int-st">
+            <label for="name" class="control-label">{{ 'Name' }}</label>
+            <input class="form-control" name="name" type="text" id="name" value="{{ isset($service->name) ? $service->name : ''}}" >
+            {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
     <div class="col-md-6 mg-t-30">

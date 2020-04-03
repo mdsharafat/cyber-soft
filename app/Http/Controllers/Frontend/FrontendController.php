@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Post;
 
 class FrontendController extends Controller
 {
@@ -19,7 +20,8 @@ class FrontendController extends Controller
 
     public function singlePost()
     {
-        return view('frontend.single-post');
+        $post = Post::where('id', 1)->first();
+        return view('frontend.single-post', compact('post'));
     }
 
     public function projects()

@@ -13,7 +13,8 @@ class CreateSkillsTable extends Migration
     public function up()
     {
         Schema::create('skills', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+            $table->id();
             $table->string('name')->nullable();
             $table->tinyInteger('progress')->nullable();
             $table->timestamps();

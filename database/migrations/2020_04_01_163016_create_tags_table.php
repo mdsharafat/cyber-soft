@@ -13,7 +13,8 @@ class CreateTagsTable extends Migration
     public function up()
     {
         Schema::create('tags', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+            $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();

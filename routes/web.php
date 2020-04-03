@@ -35,3 +35,5 @@ Route::get('/admin/company-profile/edit', 'Admin\CompanyProfileController@edit')
 Route::PATCH('/admin/company-profile/update', 'Admin\CompanyProfileController@update');
 Route::resource('admin/tags', 'Admin\\TagsController');
 Route::resource('admin/categories', 'Admin\\CategoriesController');
+Route::resource('admin/posts', 'Admin\\PostsController');
+Route::get('/admin/posts/publish/{id}', 'Admin\PostsController@publishPost');

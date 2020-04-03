@@ -1,21 +1,17 @@
 <div class="row">
     <div class="col-md-5">
-        <div class="form-example-int form-example-st">
-            <div class="nk-int-st">
-                <label for="name" class="control-label">{{ 'Name' }}</label>
-                <input class="form-control" name="name" type="text" id="name" value="{{ isset($skill->name) ? $skill->name : ''}}" >
-                {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
-            </div>
+        <div class="nk-int-st">
+            <label for="name" class="control-label">{{ 'Name' }}</label>
+            <input class="form-control" name="name" type="text" id="name" value="{{ isset($skill->name) ? $skill->name : ''}}" >
+            {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
         </div>
     </div>
     <div class="col-md-5">
-        <div class="form-example-int form-example-st">
-            <div class="form-group">
-                <div class="nk-int-st">
-                    <label for="progress" class="control-label">{{ 'Progress' }}</label>
-                    <input class="form-control" name="progress" type="number" id="progress" value="{{ isset($skill->progress) ? $skill->progress : ''}}" >
-                    {!! $errors->first('progress', '<p class="help-block">:message</p>') !!}
-                </div>
+        <div class="form-group">
+            <div class="nk-int-st">
+                <label for="progress" class="control-label">{{ 'Progress' }}</label>
+                <input class="form-control" name="progress" type="number" id="progress" value="{{ isset($skill->progress) ? $skill->progress : ''}}" >
+                {!! $errors->first('progress', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
     </div>

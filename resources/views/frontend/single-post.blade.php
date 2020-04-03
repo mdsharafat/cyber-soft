@@ -12,21 +12,21 @@
                     <div class="col-md-offset-1 col-md-10 col-sm-12">
                         <!-- BLOG THUMB -->
                         <div class="blog-detail-thumb">
-                            <div class="blog-image">
+                            {{-- <div class="blog-image">
                                 <img src="{{ asset('assets/frontend/images/blog-detail-image.jpg') }}" class="img-responsive" alt="Blog Image">
-                            </div>
+                            </div> --}}
                             <div class="author">
                                 <div class="author-details">
                                         <div class="author-img">
                                             <img src="{{ asset('assets/frontend/images/2.jpg') }}" alt="author">
                                         </div>
-                                        <small class="author-name">By Md Sharafat Hossain / published on December
+                                        <small class="author-name">By {{ $post->user->name }} / published on December
                                             22,
                                             2017</small>
                                 </div>
                             </div>
-                            <h2>What makes you happy everyday?</h2>
-                            <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus
+                            <h2>{{ $post->title }}</h2>
+                            {{-- <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus
                                 purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit
                                 massa. Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet,
                                 wisi risus purus augue vulputate voluptate neque</p>
@@ -38,15 +38,6 @@
                             <p>Vivamus quis velit sed ante suscipit aliquam nec sed ex. Maecenas porta leo at mi
                                 suscipit congue. Donec ipsum metus, tristique eu leo ut, luctu Vivamus sit amet
                                 purus nec risus mollis tempor.</p>
-
-                            {{-- <div class="col-md-6 col-sm-12"> --}}
-                                {{-- <div class="home-video">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe src="https://www.youtube.com/embed/AqcjdkPMPJA" frameborder="0" allowfullscreen></iframe>
-                                    </div>
-                                </div> --}}
-                            {{-- </div> --}}
-
                             <div class="blog-ads">
                                 <h4>Blog Sample Advertising</h4>
                             </div>
@@ -60,7 +51,8 @@
                             </ul>
                             <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus
                                 purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit
-                                massa.</p>
+                                massa.</p> --}}
+                            {!! $post->content !!}
                             <div class="blog-social-share">
                                 <h4>Share this article</h4>
                                 <a href="https://www.facebook.com/templatemo" class="btn btn-primary"><i

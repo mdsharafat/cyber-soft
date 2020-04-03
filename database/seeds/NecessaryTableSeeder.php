@@ -3,9 +3,12 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Category;
 use App\CompanyProfile;
 use App\Skill;
 use App\Service;
+use Illuminate\Support\Str;
+use App\Tag;
 
 class NecessaryTableSeeder extends Seeder
 {
@@ -23,6 +26,8 @@ class NecessaryTableSeeder extends Seeder
         $user->name     = 'Mohammad Sharafat Hossain';
         $user->email    = 'sharafat.sohan047@gmail.com';
         $user->password = Hash::make('Snkadw)#@psgHS8@');
+        $user->status   = 1;
+        $user->pro_pic  = 'pro_pic';
         $user->save();
 
         // company profile table
@@ -78,6 +83,55 @@ class NecessaryTableSeeder extends Seeder
             $service = new Service;
             $service->name = $value;
             $service->save();
+        }
+
+        // categories table
+        $categoryArray = [
+            'Cyber Security',
+            'Database',
+            'Information Technology',
+            'ITIL',
+            'Linux',
+            'Networking',
+            'Programming',
+            'Security',
+            'Windows'
+        ];
+
+        foreach($categoryArray as $value){
+            $category = new Category;
+            $category->title = $value;
+            $category->slug = Str::of($value)->slug('-');
+            $category->save();
+        }
+
+        //tags table
+        $tagArray = [
+            'debain', 
+            'kali linux', 
+            'laravel', 
+            'Reactjs', 
+            'Vuejs', 
+            'Javascript', 
+            'Jquery',
+            'php',
+            'mysql',
+            'bootstrap',
+            'css',
+            'backend',
+            'frontend',
+            'web design',
+            'web development',
+            'wordpress',
+            'wordpress theme development',
+            'wordpress plugins development',
+            'seo'
+        ];
+        foreach($tagArray as $value){
+            $tag = new Tag;
+            $tag->title = $value;
+            $tag->slug = Str::of($value)->slug('-');
+            $tag->save();
         }
     }
 }

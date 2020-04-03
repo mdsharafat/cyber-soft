@@ -27,5 +27,8 @@ class Category extends Model
      */
     protected $fillable = ['title', 'slug'];
 
-    
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class, 'category_post', 'category_id' ,'post_id')->withTimestamps();
+    }
 }

@@ -27,5 +27,8 @@ class Tag extends Model
      */
     protected $fillable = ['title', 'slug'];
 
-    
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class, 'post_tag', 'post_id', 'tag_id')->withTimestamps();
+    }
 }

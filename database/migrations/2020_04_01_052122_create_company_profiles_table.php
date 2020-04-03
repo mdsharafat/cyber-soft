@@ -14,6 +14,7 @@ class CreateCompanyProfilesTable extends Migration
     public function up()
     {
         Schema::create('company_profiles', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->string('name')->nullable();
             $table->string('moto')->nullable();

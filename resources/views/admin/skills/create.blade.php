@@ -22,6 +22,7 @@
                                 <a href="{{ url('/admin/skills') }}" title="Back"><button class="btn btn-warning primary-icon-notika waves-effect"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                             </div>
                         </div>
+                        <hr>
                         <form method="POST" action="{{ url('/admin/skills') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
