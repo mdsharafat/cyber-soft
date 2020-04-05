@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Subscribe;
 use App\Helpers\UserSystemInfoHelper;
 use Validator;
+use DB;
 
 class SubscribeController extends Controller
 {
@@ -49,5 +50,21 @@ class SubscribeController extends Controller
     {
         $subscribers = Subscribe::latest()->get();
         return view('admin.subscribers.index', compact('subscribers'));
+    }
+
+    public function activate($id)
+    {
+        DB::table('subscribes')
+            ->where('id', $id)
+            ->update(['status' => 1]);
+        return redirect()->back()->with('flash_message', 'Subscriber Activated');
+    }
+
+    public function deactivate($id)
+    {
+        DB::table('subscribes')
+            ->where('id', $id)
+            ->update(['status' => 0]);
+        return redirect()->back()->with('flash_message', 'Subscriber Deactivated');
     }
 }

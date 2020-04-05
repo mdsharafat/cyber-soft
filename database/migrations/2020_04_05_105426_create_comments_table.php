@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('commenter_id')->nullable();
             $table->unsignedBigInteger('post_id')->nullable();
             $table->text('comment')->nullable();
+            $table->boolean('is_pending')->default(1);
             $table->string('platform')->nullable();
             $table->string('browser')->nullable();
             $table->string('user_agent')->nullable();

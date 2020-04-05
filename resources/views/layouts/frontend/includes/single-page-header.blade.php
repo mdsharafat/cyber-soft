@@ -2,11 +2,12 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-
-                <div class="col-md-offset-1 col-md-5 col-sm-12">
-                    <h2>Do you Know What Thing Really Makes Artist Nowadays?</h2>
-                </div>
-
+            <div class="col-md-offset-1 col-md-10 col-sm-12">
+                <h2>
+                    "Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program."
+                    - Linus Torvalds
+                </h2>
+            </div>
         </div>
     </div>
 </section>

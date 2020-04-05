@@ -6,9 +6,36 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Contact;
 use App\Helpers\UserSystemInfoHelper;
+use DB;
 
 class ContactController extends Controller
 {
+    public function index()
+    {
+        $contactMessages = Contact::where('is_archived', 0)->latest()->get();
+        return view('admin.contacts.index', compact('contactMessages'));
+    }
+
+    public function archive($id)
+    {
+        DB::table('contacts')
+            ->where('id', $id)
+            ->update(['is_archived' => 1]);
+        return redirect()->back()->with('flash_message', 'Message Archived');
+    }
+
+    public function archivedMessages()
+    {
+        $contactMessages = Contact::where('is_archived', 1)->latest()->get();
+        return view('admin.contacts.archived-messages', compact('contactMessages'));
+    }
+
+    public function destroy($id)
+    {
+        Contact::destroy($id);
+        return redirect()->back()->with('flash_message', 'Message deleted!');
+    }
+
     public function contact(Request $request)
     {
         $request->validate([

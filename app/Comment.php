@@ -31,4 +31,9 @@ class Comment extends Model
     {
         return $this->belongsTo(Commenter::class, 'commenter_id');
     }
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class, 'post_id');
+    }
 }

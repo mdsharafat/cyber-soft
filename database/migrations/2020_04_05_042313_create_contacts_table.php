@@ -18,6 +18,7 @@ class CreateContactsTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->text('message')->nullable();
+            $table->boolean('is_archived')->default(0);
             $table->string('platform')->nullable();
             $table->string('browser')->nullable();
             $table->string('user_agent')->nullable();

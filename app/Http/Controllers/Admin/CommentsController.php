@@ -59,4 +59,38 @@ class CommentsController extends Controller
 
         return redirect()->back()->with('commentMessage', 'Your comment is under review.');
     }
+
+    public function pendingComments()
+    {
+        $comments = Comment::where('is_pending', 1)->latest()->get();
+        return view('admin.comments.pending-comments', compact('comments'));
+    }
+
+    public function approvedComments()
+    {
+        $comments = Comment::where('is_pending', 0)->latest()->get();
+        return view('admin.comments.approved-comments', compact('comments'));
+    }
+
+    public function approveComment($id)
+    {
+        DB::table('comments')
+            ->where('id', $id)
+            ->update(['is_pending' => 0]);
+        return redirect()->back()->with('flash_message', 'Comment Approved');
+    }
+
+    public function pendingComment($id)
+    {
+        DB::table('comments')
+            ->where('id', $id)
+            ->update(['is_pending' => 1]);
+        return redirect()->back()->with('flash_message', 'Comment Approved');
+    }
+
+    public function destroy($id)
+    {
+        Comment::destroy($id);
+        return redirect()->back()->with('flash_message', 'Comment deleted!');
+    }
 }

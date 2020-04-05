@@ -21,7 +21,7 @@
                                         <div class="basic-tb-hd">
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    <h2>Subscriber Lists</h2>
+                                                    <h2>Approved Comments</h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -30,8 +30,9 @@
                                                 <thead>
                                                     <tr>
                                                         <th>SN</th>
+                                                        <th>Name</th>
                                                         <th>Email</th>
-                                                        <th>Status</th>
+                                                        <th>Post</th>
                                                         <th>Platform</th>
                                                         <th>Browser</th>
                                                         <th>User Agent</th>
@@ -46,17 +47,12 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($subscribers as $item)
+                                                    @foreach($comments as $item)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
-                                                            <td>{{ $item->email }}</td>
-                                                            <td>
-                                                                @if($item->status == 1)
-                                                                    <span class='badge' style="background: green;">Active</span>
-                                                                @else
-                                                                    <span class='badge' style="background: red;">Deactivated</span>
-                                                                @endif
-                                                            </td>
+                                                            <td>{{ $item->commenter->name }}</td>
+                                                            <td>{{ $item->commenter->email }}</td>
+                                                            <td>{{ $item->post->slug }}</td>
                                                             <td>{{ $item->platform }}</td>
                                                             <td>{{ $item->browser }}</td>
                                                             <td>{{ $item->user_agent }}</td>
@@ -68,15 +64,11 @@
                                                             <td>{{ $item->lat }}</td>
                                                             <td>{{ $item->lon }}</td>
                                                             <td>
-                                                                @if($item->status == 1)
-                                                                    <a href="{{ url('/admin/deactivate-subscriber/' . $item->id) }}" title="Deactivate"><button class="btn btn-orange orange-icon-notika waves-effect"><i class="notika-icon notika-checked"></i></button></a>
-                                                                @else
-                                                                    <a href="{{ url('/admin/activate-subscriber/' . $item->id) }}" title="Activate"><button class="btn btn-teal teal-icon-notika waves-effect"><i class="notika-icon notika-checked"></i></button></a>
-                                                                @endif
-                                                                <form method="POST" action="{{ url('/admin/skills' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                                <a href="{{ url('/admin/pending-comment/' . $item->id) }}" title="Activate"><button class="btn btn-teal teal-icon-notika waves-effect"><i class="notika-icon notika-checked"></i></button></a>
+                                                                <form method="POST" action="{{ url('/delete-comment' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                                     {{ method_field('DELETE') }}
                                                                     {{ csrf_field() }}
-                                                                    <button type="submit" class="btn btn-danger danger-icon-notika waves-effect" title="Delete Skill" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="notika-icon notika-trash"></i></button>
+                                                                    <button type="submit" class="btn btn-danger danger-icon-notika waves-effect" title="Delete Message" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="notika-icon notika-trash"></i></button>
                                                                 </form>
                                                             </td>
                                                         </tr>

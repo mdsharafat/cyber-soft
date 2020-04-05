@@ -5,91 +5,53 @@
                 <div class="mobile-menu">
                     <nav id="dropdown">
                         <ul class="mobile-menu-nav">
-                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
-                                <ul class="collapse dropdown-header-top">
-                                    <li><a href="index.html">Dashboard One</a></li>
-                                    <li><a href="index-2.html">Dashboard Two</a></li>
-                                    <li><a href="index-3.html">Dashboard Three</a></li>
-                                    <li><a href="index-4.html">Dashboard Four</a></li>
-                                    <li><a href="analytics.html">Analytics</a></li>
-                                    <li><a href="widgets.html">Widgets</a></li>
-                                </ul>
+                            <li><a href="{{ url('/dashboard') }}">Home</a>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#demoevent" href="#">Email</a>
+                            <li><a data-toggle="collapse" data-target="#demoevent">Contact</a>
                                 <ul id="demoevent" class="collapse dropdown-header-top">
-                                    <li><a href="inbox.html">Inbox</a></li>
-                                    <li><a href="view-email.html">View Email</a></li>
-                                    <li><a href="compose-email.html">Compose Email</a></li>
+                                    <li><a href="{{ url('/admin/contact-messages') }}">Inbox</a>
+                                    </li>
+                                    <li><a href="{{ url('/admin/archived-contact-messages') }}">Archived</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#democrou" href="#">Interface</a>
+                            <li><a data-toggle="collapse" data-target="#democrou">Posts</a>
                                 <ul id="democrou" class="collapse dropdown-header-top">
-                                    <li><a href="animations.html">Animations</a></li>
-                                    <li><a href="google-map.html">Google Map</a></li>
-                                    <li><a href="data-map.html">Data Maps</a></li>
-                                    <li><a href="code-editor.html">Code Editor</a></li>
-                                    <li><a href="image-cropper.html">Images Cropper</a></li>
-                                    <li><a href="wizard.html">Wizard</a></li>
+                                    <li><a href="{{ url('/admin/posts/create') }}">Create</a>
+                                    </li>
+                                    <li><a href="{{ url('/admin/posts') }}">Index</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#demolibra" href="#">Charts</a>
+                            <li><a data-toggle="collapse" data-target="#demolibra">Subscription</a>
                                 <ul id="demolibra" class="collapse dropdown-header-top">
-                                    <li><a href="flot-charts.html">Flot Charts</a></li>
-                                    <li><a href="bar-charts.html">Bar Charts</a></li>
-                                    <li><a href="line-charts.html">Line Charts</a></li>
-                                    <li><a href="area-charts.html">Area Charts</a></li>
+                                    <li><a href="{{ url('/admin/subscriber-lists') }}">Index</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables</a>
+                            <li><a data-toggle="collapse" data-target="#demodepart">Comments</a>
                                 <ul id="demodepart" class="collapse dropdown-header-top">
-                                    <li><a href="normal-table.html">Normal Table</a></li>
-                                    <li><a href="data-table.html">Data Table</a></li>
+                                    <li><a href="{{ url('/admin/approved-comments') }}">Approved List</a>
+                                    </li>
+                                    <li><a href="{{ url('/admin/pending-comments') }}">Pending List</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#demo" href="#">Forms</a>
+                            <li><a data-toggle="collapse" data-target="#demo">Others</a>
                                 <ul id="demo" class="collapse dropdown-header-top">
-                                    <li><a href="form-elements.html">Form Elements</a></li>
-                                    <li><a href="form-components.html">Form Components</a></li>
-                                    <li><a href="form-examples.html">Form Examples</a></li>
+                                    <li><a href="{{ url('admin/categories') }}">Categories</a>
+                                    </li>
+                                    <li><a href="{{ url('admin/skills') }}">Skills</a>
+                                    </li>
+                                    <li><a href="{{ url('admin/services') }}">Services</a>
+                                    </li>
+                                    <li><a href="{{ url('admin/tags') }}">Tags</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">App views</a>
+                            <li><a data-toggle="collapse" data-target="#Miscellaneousmob">Account</a>
                                 <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                    <li><a href="notification.html">Notifications</a>
-                                    </li>
-                                    <li><a href="alert.html">Alerts</a>
-                                    </li>
-                                    <li><a href="modals.html">Modals</a>
-                                    </li>
-                                    <li><a href="buttons.html">Buttons</a>
-                                    </li>
-                                    <li><a href="tabs.html">Tabs</a>
-                                    </li>
-                                    <li><a href="accordion.html">Accordion</a>
-                                    </li>
-                                    <li><a href="dialog.html">Dialogs</a>
-                                    </li>
-                                    <li><a href="popovers.html">Popovers</a>
-                                    </li>
-                                    <li><a href="tooltips.html">Tooltips</a>
-                                    </li>
-                                    <li><a href="dropdown.html">Dropdowns</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
-                                <ul id="Pagemob" class="collapse dropdown-header-top">
-                                    <li><a href="contact.html">Contact</a>
-                                    </li>
-                                    <li><a href="invoice.html">Invoice</a>
-                                    </li>
-                                    <li><a href="typography.html">Typography</a>
-                                    </li>
-                                    <li><a href="color.html">Color</a>
-                                    </li>
-                                    <li><a href="login-register.html">Login Register</a>
-                                    </li>
-                                    <li><a href="404.html">404 Page</a>
+                                    <li><a href="{{ url('admin/C127Wp-aqlg-SZ/change-my-password') }}">Change Password</a>
                                     </li>
                                 </ul>
                             </li>
