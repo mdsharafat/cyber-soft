@@ -25,7 +25,7 @@ class CategoriesController extends Controller
 
     public function store(Request $request)
     {
-        $category        = new Category;
+        $category        = new Category();
         $category->title = $request->title;
         $category->slug  = Str::of($request->title)->slug('-');
         $category->save();

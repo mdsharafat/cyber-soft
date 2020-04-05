@@ -30,6 +30,7 @@ Route::get('/dashboard', 'Admin\AdminController@index');
 Route::POST('/subscribe', 'Admin\SubscribeController@subscribe');
 Route::get('/admin/subscriber-lists', 'Admin\SubscribeController@subscriberLists');
 Route::POST('/contact', 'Admin\ContactController@contact');
+Route::POST('/comment', 'Admin\CommentsController@comment');
 
 Route::resource('admin/skills', 'Admin\\SkillsController');
 Route::resource('admin/services', 'Admin\\ServicesController');

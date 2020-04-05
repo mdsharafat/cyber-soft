@@ -20,7 +20,7 @@ class ContactController extends Controller
         $userSystemInfoHelper   = new UserSystemInfoHelper();
         $userSystemInfo         =$userSystemInfoHelper->getBrowser();
 
-        $contact = new Contact;
+        $contact              = new Contact();
         $contact->name        = $request->name;
         $contact->email       = $request->email;
         $contact->message     = $request->message;

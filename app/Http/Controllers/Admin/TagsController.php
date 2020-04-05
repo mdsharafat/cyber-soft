@@ -26,7 +26,7 @@ class TagsController extends Controller
     public function store(Request $request)
     {
         
-        $tag        = new Tag;
+        $tag        = new Tag();
         $tag->title = $request->title;
         $tag->slug  = Str::of($request->title)->slug('-');
         $tag->save();

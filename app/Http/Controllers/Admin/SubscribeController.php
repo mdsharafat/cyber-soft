@@ -15,7 +15,7 @@ class SubscribeController extends Controller
         $userSystemInfoHelper   = new UserSystemInfoHelper();
         $userSystemInfo         =$userSystemInfoHelper->getBrowser();
 
-        $subscribe              = new Subscribe;
+        $subscribe              = new Subscribe();
         $subscribe->email       = $request->email;
         $subscribe->platform    = $userSystemInfo['platform'];
         $subscribe->browser     = $userSystemInfo['name']." Version : ".$userSystemInfo['version'];

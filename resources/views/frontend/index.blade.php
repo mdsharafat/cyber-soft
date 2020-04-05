@@ -1,6 +1,13 @@
 @extends('layouts.frontend.master-home-layout')
 
 @section('main-content')
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
+            <span class="spinner-rotate"></span>
+        </div>
+    </section>
+
     <!-- ABOUT -->
     <section id="about" data-stellar-background-ratio="0.5">
         <div class="container">
@@ -383,6 +390,10 @@
 @section('footer-script')
 <script>
     $(document).on('ready', function () {
+        // PRE LOADER
+        $(window).load(function () {
+            $('.preloader').fadeOut(100); // set duration in brackets    
+        });
         $('.responsive').slick({
                 dots: false,
                 autoplay: true,

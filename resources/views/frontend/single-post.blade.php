@@ -5,6 +5,19 @@
 @endsection
 
 @section('main-content')
+    @if(Session::has('commentMessage'))
+        <script type="text/javascript">
+            swal({
+                title:'Success!',
+                text:"{{Session::get('commentMessage')}}",
+                timer:5000,
+                type:'success'
+            }).then((value) => {
+            //location.reload();
+            }).catch(swal.noop);
+        </script>
+    @endif
+
     <!-- BLOG DETAIL -->
     <section id="blog-detail" data-stellar-background-ratio="0.5">
         <div class="container">
@@ -26,33 +39,7 @@
                                 </div>
                             </div>
                             <h2>{{ $post->title }}</h2>
-                            {{-- <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus
-                                purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit
-                                massa. Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet,
-                                wisi risus purus augue vulputate voluptate neque</p>
-
-                            <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi,
-                                quisquam, aut, eum, natus excepturi impedit ipsa rerum ratione id dolores
-                                ducimus minus eos veniam similique.</blockquote>
-
-                            <p>Vivamus quis velit sed ante suscipit aliquam nec sed ex. Maecenas porta leo at mi
-                                suscipit congue. Donec ipsum metus, tristique eu leo ut, luctu Vivamus sit amet
-                                purus nec risus mollis tempor.</p>
-                            <div class="blog-ads">
-                                <h4>Blog Sample Advertising</h4>
-                            </div>
-
-                            <ul>
-                                <li>Brand Identity ipsum dolor eget vestibulum justo imper diet.</li>
-                                <li>Social Marketing porta leo at mi suscipit congue. Donec ipsum metus,
-                                        tristique leo luctus.</li>
-                                <li>Wordpress Themes augue vulputate voluptate neque, curabitur dolor vitae
-                                        massa.</li>
-                            </ul>
-                            <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus
-                                purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit
-                                massa.</p> --}}
-                            {!! $post->content !!}
+                                {!! $post->content !!}
                             <div class="blog-social-share">
                                 <h4>Share this article</h4>
                                 <a href="https://www.facebook.com/templatemo" class="btn btn-primary"><i
@@ -83,30 +70,32 @@
                     <div class="comment-wrapper">
                         <div class="panel panel-info">
                             <div class="panel-body">
-                            <form id="comment-form" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Name" id="cf-name" name="name" required="required">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Email" id="cf-name" name="email" required="required">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <span id="filename">Select your image/optional</span>
-                                        <label for="file-upload">Upload<input class="section-btn" type="file" id="file-upload"></label>
-                                    </div>
+                                <div class="main-comment-form">
+                                    <p class="comment-note text-left"><span class="text-danger">*</span>We will not publish your email address.</p>
+                                    <form action="{{ url('/comment') }}" method="post" id="comment-form" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="post" value="{{ $post->slug }}">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control cf-name" placeholder="Name" id="cf-name" name="name" required="required">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="email" class="form-control cf-email" placeholder="Email" id="cf-name" name="email" required="required">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <textarea class="form-control cf-comment" required placeholder="Write a comment..." rows="5" name="comment"></textarea>
+                                        <br>
+                                        <button type="submit" class="btn section-btn pull-right submit-comment">Submit</button>
+                                    </form>
                                 </div>
-                                <br>
-                                <textarea class="form-control" required placeholder="Write a comment..." rows="5" name="comment"></textarea>
-                                <br>
-                                <button type="button" class="btn section-btn pull-right">Submit</button>
-                            </form>
+                                
                                 <div class="clearfix"></div>
                                 <hr>
                                 <ul class="media-list">
                                     <li class="media">
                                         <a href="#" class="pull-left">
-                                            <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+                                            <img src="{{ asset('assets/frontend/images/commenters.jpg') }}" alt="" class="img-circle">
                                         </a>
                                         <div class="media-body">
                                             <span class="text-muted pull-right">
