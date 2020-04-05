@@ -223,18 +223,56 @@
             </div>
         </div>
     </section>
+
 @endsection
 
 @section('footer-script')
-    <script>
-        $(document).on('ready', function(){
-            $('#file-upload').change(function() {
-                var filepath = this.value;
-                var m = filepath.match(/([^\/\\]+)$/);
-                var filename = m[1];
-                $('#filename').html(filename);
+<script>
+    $(document).on('ready', function(){
+        $('#file-upload').change(function() {
+            var filepath = this.value;
+            var m = filepath.match(/([^\/\\]+)$/);
+            var filename = m[1];
+            $('#filename').html(filename);
 
-            });
         });
-    </script>
+        $('.error').hide();
+        $(document).on('keyup', '#email', function () {
+            $('.error').hide();
+        });
+        $(document).on('click', '#submit', function () {
+            var email = $('#email').val();
+            if (IsEmail(email) == false) {
+                $('#invalid_email').show();
+                return false;
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ url('/subscribe') }}",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: {
+                        email: email
+                    },
+                    success: function (data) {
+                        if (data.msg == 'success') {
+                            swal("Thank You!",''+data.text+'', "success")
+                        } else {
+                            swal("Duplicate",''+data.msg+'', "warning");
+                        }
+                    }
+                });
+            }
+        });
+        function IsEmail(email) {
+            var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!regex.test(email)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    });
+</script>
 @endsection

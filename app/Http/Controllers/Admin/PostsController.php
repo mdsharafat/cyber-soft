@@ -23,9 +23,10 @@ class PostsController extends Controller
 
     public function create()
     {
+        $post       = new Post();
         $categories = Category::latest()->get();
         $tags       = Tag::latest()->get();
-        return view('admin.posts.create', compact('categories', 'tags'));
+        return view('admin.posts.create', compact('post','categories', 'tags'));
     }
 
     public function store(Request $request)

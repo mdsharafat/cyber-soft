@@ -381,41 +381,78 @@
 @endsection
 
 @section('footer-script')
-    <script>
-        $(document).on('ready', function () {
-            $('.responsive').slick({
-                    dots: false,
-                    autoplay: true,
-                    speed: 300,
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    responsive: [
-                        {
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 3,
-                                slidesToScroll: 3,
-                                infinite: true,
-                                dots: true
-                            }
-                        },
-                        {
-                            breakpoint: 600,
-                            settings: {
-                                slidesToShow: 2,
-                                slidesToScroll: 2
-                            }
-                        },
-                        {
-                            breakpoint: 480,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            }
+<script>
+    $(document).on('ready', function () {
+        $('.responsive').slick({
+                dots: false,
+                autoplay: true,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
                         }
-                    ]
-            });
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
         });
-    </script>
+        $('.error').hide();
+        $(document).on('keyup', '#email', function () {
+            $('.error').hide();
+        });
+        $(document).on('click', '#submit', function () {
+            var email = $('#email').val();
+            if (IsEmail(email) == false) {
+                $('#invalid_email').show();
+                return false;
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ url('/subscribe') }}",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: {
+                        email: email
+                    },
+                    success: function (data) {
+                        if (data.msg == 'success') {
+                            swal("Thank You!",''+data.text+'', "success")
+                        } else {
+                            swal("Duplicate",''+data.msg+'', "warning");
+                        }
+                    }
+                });
+            }
+        });
+        function IsEmail(email) {
+            var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!regex.test(email)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        });
+</script>
 @endsection

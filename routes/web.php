@@ -27,6 +27,9 @@ Route::group(['prefix' => 'C127Wp-aqlg-SZ'], function() {
 });
 
 Route::get('/dashboard', 'Admin\AdminController@index');
+Route::POST('/subscribe', 'Admin\SubscribeController@subscribe');
+Route::get('/admin/subscriber-lists', 'Admin\SubscribeController@subscriberLists');
+Route::POST('/contact', 'Admin\ContactController@contact');
 
 Route::resource('admin/skills', 'Admin\\SkillsController');
 Route::resource('admin/services', 'Admin\\ServicesController');

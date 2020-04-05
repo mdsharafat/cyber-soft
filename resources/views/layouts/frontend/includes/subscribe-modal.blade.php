@@ -27,11 +27,12 @@
                                     <!-- TAB PANES -->
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
-                                            <form action="#" method="post">
-                                                <input type="email" class="form-control" name="email"
+                                            <form role="form" action="">
+                                                <input type="email" class="form-control email" id="email" name="email"
                                                         placeholder="Email" required>
-                                                <input type="submit" class="form-control" name="submit"
-                                                        value="Subscribe">
+                                                <span class="error text-danger" id="invalid_email">Email-id is invalid</span>
+                                                {{-- <input type="submit" id="submit" class="form-control" value="Subscribe"> --}}
+                                                <button type="button" id="submit" class="btn section-btn submit">Subscribe</button>
                                             </form>
                                         </div>
                                     </div>

@@ -3,3 +3,4 @@
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/templatemo-style.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/slick.css') }}" />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

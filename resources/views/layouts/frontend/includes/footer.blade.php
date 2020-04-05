@@ -1,20 +1,18 @@
 <footer data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
-
-            <div class="col-md-5 col-sm-12">
+            <div class="col-md-3 col-sm-12">
                 <div class="footer-thumb">
-                    <h2>Subscribe</h2>
-                    <form action="post">
-                        <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-                            <input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-                            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
-                        </div>
-                    </form>
+                    <h2>Services</h2>
+                    <ul class="footer-link">
+                        <li><a href="{{ url('/') }}">UX/UI Design</a></li>
+                        <li><a href="{{ url('/posts') }}">Wordpress Theme Customization</a></li>
+                        <li><a href="{{ url('/projects') }}">Wordpress Theme Development</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="col-md-2 col-sm-4">
+            <div class="col-md-2 col-sm-12">
                 <div class="footer-thumb">
                     <h2>Pages</h2>
                     <ul class="footer-link">
@@ -24,8 +22,18 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-md-3 col-sm-12">
+                <div class="footer-thumb">
+                    <h2>Address</h2>
+                    <ul class="footer-link">
+                        <li><a href="{{ url('/') }}">Wabda road, post office para, Chuadanga, 7200, Bangladesh.</a></li>
+                        <li><a href="{{ url('/posts') }}">Email: info@cybersoftbd.net</a></li>
+                        <li><a href="{{ url('/projects') }}">Phone: +8801787689983</a></li>
+                    </ul>
+                </div>
+            </div>
 
-            <div class="col-md-5 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <div class="footer-thumb footer-info">
                     <h2>CyberSoft</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
