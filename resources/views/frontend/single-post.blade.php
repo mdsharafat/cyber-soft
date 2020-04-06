@@ -23,23 +23,23 @@
         <div class="container">
             <div class="row">
                     <div class="col-md-offset-1 col-md-10 col-sm-12">
-                        <!-- BLOG THUMB -->
                         <div class="blog-detail-thumb">
-                            {{-- <div class="blog-image">
-                                <img src="{{ asset('assets/frontend/images/blog-detail-image.jpg') }}" class="img-responsive" alt="Blog Image">
-                            </div> --}}
                             <div class="author">
                                 <div class="author-details">
                                         <div class="author-img">
                                             <img src="{{ asset('assets/frontend/images/2.jpg') }}" alt="author">
                                         </div>
-                                        <small class="author-name">By {{ $post->user->name }} / published on December
-                                            22,
-                                            2017</small>
+                                        <small class="author-name">By {{ $post->user->name }} / published on {{ \Carbon\Carbon::parse($post->created_at)->isoFormat('MMMM Do YYYY, h:mm:ss a') }}</small>
                                 </div>
                             </div>
                             <h2>{{ $post->title }}</h2>
                                 {!! $post->content !!}
+                            <div class="post-related-tag">
+                                @foreach($post->tags as $tag)
+                                   <a href="{{ url('tag/'.$tag->slug) }}"><span class="badge tag-span">{{ $tag->title }}</span></a>
+                                @endforeach
+                            </div>
+                            
                             <div class="blog-social-share">
                                 <h4>Share this article</h4>
                                 <a href="https://www.facebook.com/templatemo" class="btn btn-primary"><i
@@ -53,6 +53,49 @@
             </div>
         </div>
     </section>
+
+    <!-- BLOG -->
+    @if($relatedPosts->count() > 0)
+    <section id="related-posts" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-title">
+                        <h2>Related Posts</h2>
+                        <span class="line-bar">...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach($relatedPosts as $relatedPost)
+                    <div class="col-md-6 col-sm-6">
+                            <div class="media blog-thumb">
+                                <div class="media-body blog-info">
+                                    <small style="display: inline-block;"><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($relatedPost->created_at)->isoFormat('MMMM Do YYYY, h:mm:ss a') }}</small>
+                                    <small style="display: inline-block;" class="media-blog-small pull-right"><i class="fa fa-eye"></i>{{ $relatedPost->view_count }}</small>
+                                    <h3 class="blog-heading"><a href="{{ url('/post/'.$relatedPost->slug) }}">{{ $relatedPost->title }}</a></h3>
+                                    <p>{!! \Illuminate\Support\Str::words($relatedPost->short_desc, 10,'....')  !!}</p>
+                                    <div class="row">
+                                        <div class="col-md-6 pull-left">
+                                            <a href="{{ url('/post/'.$relatedPost->slug) }}" target="__blank" class="btn section-btn">Read article</a>
+                                        </div>
+                                        <div class="col-md-6 pull-right">
+                                            <small class="mg-t-20"><img class="front-author-img" src="{{ asset('storage/users/'.$relatedPost->user->pro_pic) }}"> &nbsp; {{ $relatedPost->user->name }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                @endforeach
+            </div>
+            <div class="row">
+                    <div class="col-md-3 pull-right text-right">
+                        <a href="{{ url('/posts') }}" class=""> <button type="button" class="btn section-btn">Show all posts</button></a>
+                    </div>
+            </div>
+        </div>
+    </section>
+    @endif
 
     <!-- BLOG -->
     <section id="comment-box" data-stellar-background-ratio="0.5">
@@ -93,122 +136,30 @@
                                 <div class="clearfix"></div>
                                 <hr>
                                 <ul class="media-list">
-                                    <li class="media">
-                                        <a href="#" class="pull-left">
-                                            <img src="{{ asset('assets/frontend/images/commenters.jpg') }}" alt="" class="img-circle">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="text-muted pull-right">
-                                                <small class="text-muted">30 min ago</small>
-                                            </span>
-                                            <div class="text-left">
-                                                <strong class="text-success">@MartinoMont</strong>
-                                                <p class="">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a href="#" class="pull-left">
-                                            <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="text-muted pull-right">
-                                                <small class="text-muted">30 min ago</small>
-                                            </span>
-                                            <div class="text-left">
-                                                <strong class="text-success">@MartinoMont</strong>
-                                                <p class="">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <a href="#" class="pull-left">
-                                            <img src="https://bootdey.com/img/Content/user_3.jpg" alt="" class="img-circle">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="text-muted pull-right">
-                                                <small class="text-muted">30 min ago</small>
-                                            </span>
-                                            <div class="text-left">
-                                                <strong class="text-success">@MartinoMont</strong>
-                                                <p class="">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    @foreach($post->comments as $comment)
+                                        @if($comment->is_pending == 0)
+                                            <li class="media">
+                                                <a href="#" class="pull-left">
+                                                    <img src="{{ asset('assets/frontend/images/commenters.jpg') }}" alt="" class="img-circle">
+                                                </a>
+                                                <div class="media-body">
+                                                    <span class="text-muted pull-right">
+                                                        <small class="text-muted">{{ \Carbon\Carbon::parse($comment->created_at)->isoFormat('MMMM Do YYYY, h:mm:ss a') }}</small>
+                                                    </span>
+                                                    <div class="text-left">
+                                                        <strong class="text-success">{{ $comment->commenter->name }}</strong>
+                                                        <p class="">{{ $comment->comment }}</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BLOG -->
-    <section id="related-posts" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="section-title">
-                        <h2>Related Posts</h2>
-                        <span class="line-bar">...</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="media blog-thumb">
-                            <div class="media-body blog-info">
-                                <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
-                                        2017</small>
-                                <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
-                                        Mohammad
-                                        Sharafat Hossain</small>
-                                <h3><a href="blog-detail.html">How To Find Out Beautiful Workspace. How To
-                                            Find</a></h3>
-                                <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                <a href="blog-detail.html" class="btn section-btn">Read article</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <div class="media blog-thumb">
-                            <div class="media-body blog-info">
-                                <small class="media-blog-small"><i class="fa fa-clock-o"></i> December 22,
-                                        2017</small>
-                                <small class="media-blog-small pull-right"><i class="fa fa-pencil"></i> By
-                                        Mohammad
-                                        Sharafat Hossain</small>
-                                <h3><a href="blog-detail.html">How To Find Out Beautiful Workspace. How To
-                                            Find</a></h3>
-                                <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis. Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                <a href="blog-detail.html" class="btn section-btn">Read article</a>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-3 pull-right text-right">
-                        <a href="all-blog.html" class=""> <button type="button" class="btn section-btn">Show all
-                                posts</button></a>
-                    </div>
             </div>
         </div>
     </section>

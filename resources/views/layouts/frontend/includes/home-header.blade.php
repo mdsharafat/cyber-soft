@@ -6,11 +6,11 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="home-info">
                         <h1>
-                            {{ $companyProfile->moto }}
+                            {{ $companyProfileObject->moto }}
                         </h1>
                         <a href="#contact" class="btn section-btn smoothScroll">Start a project</a>
                         <span>
-                            Send us email at {{ $companyProfile->email }}
+                            Send us email at {{ $companyProfileObject->email }}
                             <small>For any inquiry</small>
                         </span>
                     </div>

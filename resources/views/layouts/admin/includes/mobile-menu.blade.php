@@ -47,6 +47,8 @@
                                     </li>
                                     <li><a href="{{ url('admin/tags') }}">Tags</a>
                                     </li>
+                                    <li><a href="{{ url('admin/company-profile') }}">Company Profile</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li><a data-toggle="collapse" data-target="#Miscellaneousmob">Account</a>

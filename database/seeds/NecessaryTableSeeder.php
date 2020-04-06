@@ -27,7 +27,7 @@ class NecessaryTableSeeder extends Seeder
         $user->email    = 'sharafat.sohan047@gmail.com';
         $user->password = Hash::make('Snkadw)#@psgHS8@');
         $user->status   = 1;
-        $user->pro_pic  = 'pro_pic';
+        $user->pro_pic  = 'pro_pic.jpg';
         $user->save();
 
         // company profile table

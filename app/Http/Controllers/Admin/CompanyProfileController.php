@@ -44,9 +44,6 @@ class CompanyProfileController extends Controller
         $requestData['fb_link']   = $request->fb_link;
         $requestData['tw_link']   = $request->tw_link;
         $requestData['ln_link']   = $request->ln_link;
-        $requestData['vb_link']   = $request->vb_link;
-        $requestData['wa_link']   = $request->wa_link;
-        $requestData['sk_link']   = $request->sk_link;
         
         if ($request->hasfile('logo')) {
             if ($companyProfile->logo) {

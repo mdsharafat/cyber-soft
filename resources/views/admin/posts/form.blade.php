@@ -75,7 +75,7 @@
     </div>
 </div>
 
-<div class="row mg-t-20">
+{{-- <div class="row mg-t-20">
     <div class="col-lg-6 col-md-6">
         <div class="lh">
             <label for="cover_img">{{ 'Cover Image' }} </label>
@@ -94,7 +94,7 @@
         <img id="blah" class="uploaded-img-preview" src="http://placehold.it/180" alt="{{ $post->title }}" />
         @endif
     </div>
-</div>
+</div> --}}
 
 <div class="toggle-select-act fm-cmp-mg mg-t-20">
     <div class="nk-toggle-switch">

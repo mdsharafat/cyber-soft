@@ -5,9 +5,9 @@
                 <div class="footer-thumb">
                     <h2>Services</h2>
                     <ul class="footer-link">
-                        <li><a href="{{ url('/') }}">UX/UI Design</a></li>
-                        <li><a href="{{ url('/posts') }}">Wordpress Theme Customization</a></li>
-                        <li><a href="{{ url('/projects') }}">Wordpress Theme Development</a></li>
+                        @foreach($servicesObject as $service)
+                            <li><a>{{ $service->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -26,9 +26,9 @@
                 <div class="footer-thumb">
                     <h2>Address</h2>
                     <ul class="footer-link">
-                        <li><a href="{{ url('/') }}">Wabda road, post office para, Chuadanga, 7200, Bangladesh.</a></li>
-                        <li><a href="{{ url('/posts') }}">Email: info@cybersoftbd.net</a></li>
-                        <li><a href="{{ url('/projects') }}">Phone: +8801787689983</a></li>
+                        <li><a>{{ $companyProfileObject->address }}</a></li>
+                        <li><a>Email: {{ $companyProfileObject->email }}</a></li>
+                        <li><a>Phone: {{ $companyProfileObject->phone }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -36,8 +36,7 @@
             <div class="col-md-4 col-sm-12">
                 <div class="footer-thumb footer-info">
                     <h2>CyberSoft</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.</p>
+                    <p>{{ $companyProfileObject->intro }}</p>
                 </div>
             </div>
 
@@ -45,18 +44,18 @@
                 <div class="footer-bottom">
                     <div class="col-md-6 col-sm-5 text-center">
                         <div class="copyright-text">
-                                <p>Copyright &copy; 2017 Your Company</p>
+                                <p>Copyright &copy; {{ $companyProfileObject->copyright }}</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-7 text-center">
                         <div class="phone-contact">
-                                <p>Call us <span>(+66) 010-020-0340</span></p>
+                                <p>Mail us at<span>{{ $companyProfileObject->email }}</span></p>
                         </div>
                         <ul class="social-icon">
-                                <li><a href="https://www.facebook.com/templatemo"
+                                <li><a href="{{ $companyProfileObject->fb_link }}"
                                         class="fa fa-facebook-square" attr="facebook icon"></a></li>
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                                <li><a href="#" class="fa fa-linkedin"></a></li>
+                                <li><a href="{{ $companyProfileObject->tw_link }}" class="fa fa-twitter"></a></li>
+                                <li><a href="{{ $companyProfileObject->ln_link }}" class="fa fa-linkedin"></a></li>
                         </ul>
                     </div>
                 </div>

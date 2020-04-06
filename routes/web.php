@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Frontend\FrontendController@index')->name('home');
 Route::get('/posts', 'Frontend\FrontendController@posts');
-Route::get('/{slug}', 'Frontend\FrontendController@singlePost');
+Route::get('/post/{slug}', 'Frontend\FrontendController@singlePost');
+Route::get('/category/{slug}', 'Frontend\FrontendController@postByCategory');
+Route::get('/tag/{slug}', 'Frontend\FrontendController@postByTag');
 Route::get('/projects', 'Frontend\FrontendController@projects');
+Route::POST('/search-post', 'Frontend\FrontendController@searchPost');
 
 Route::group(['prefix' => 'C127Wp-aqlg-SZ'], function() {
     Auth::routes([
@@ -45,7 +48,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('admin/skills', 'Admin\\SkillsController');
     Route::resource('admin/services', 'Admin\\ServicesController');
-    Route::get('/admin/company-profile', 'Admin\CompanyProfileController@index');
+    Route::get('admin/company-profile', 'Admin\CompanyProfileController@index');
     Route::get('/admin/company-profile/edit', 'Admin\CompanyProfileController@edit');
     Route::PATCH('/admin/company-profile/update', 'Admin\CompanyProfileController@update');
     Route::resource('admin/tags', 'Admin\\TagsController');

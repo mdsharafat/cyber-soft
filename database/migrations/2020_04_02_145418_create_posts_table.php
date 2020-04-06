@@ -19,9 +19,8 @@ class CreatePostsTable extends Migration
             $table->mediumText('content')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('slug')->nullable();
-            $table->string('cover_img')->nullable();
             $table->string('short_desc')->nullable();
-            $table->integer('view_count')->nullable();
+            $table->integer('view_count')->default(0);
             $table->boolean('is_published')->default(0);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

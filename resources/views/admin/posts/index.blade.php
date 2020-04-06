@@ -35,7 +35,6 @@
                                                 <thead>
                                                     <tr>
                                                         <th>SN</th>
-                                                        <th>Cover</th>
                                                         <th>Title</th>
                                                         <th>Slug</th>
                                                         <th>Author</th>
@@ -46,7 +45,6 @@
                                                     @foreach($posts as $item)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
-                                                            <td>@isset($item->cover_img) <img style="width: 50px; height: 50px;" src="{{ asset('storage/blog/'.$item->cover_img) }}" alt="Cover"> @endisset</td>
                                                             <td>@isset($item->title) {{ $item->title }} @endisset</td>
                                                             <td>@isset($item->slug){{ $item->slug }} @endisset</td>
                                                             <td>@isset($item->user_id){{ $item->user->name }} @endisset</td>

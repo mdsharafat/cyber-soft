@@ -21,9 +21,9 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="{{ $companyProfileObject->fb_link }}"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="{{ $companyProfileObject->tw_link }}"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="{{ $companyProfileObject->ln_link }}"><i class="fa fa-linkedin"></i></a></li>
                     <li class="section-btn subscribe-btn" data-toggle="modal" data-target="#modal-form">
                         Subscribe</li>
                 </ul>

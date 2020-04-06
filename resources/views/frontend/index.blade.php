@@ -18,7 +18,7 @@
                             <h2>Let us introduce</h2>
                             <span class="line-bar">...</span>
                         </div>
-                        <p>{{ $companyProfile->intro }}</p>
+                        <p>{{ $companyProfileObject->intro }}</p>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <div class="about-image">
-                        <img src="{{ asset('storage/company-profile/'.$companyProfile->pro_pic) }}" class="img-responsive" alt="">
+                        <img src="{{ asset('storage/company-profile/'.$companyProfileObject->pro_pic) }}" class="img-responsive" alt="">
                     </div>
                 </div>
             </div>
@@ -63,18 +63,16 @@
                 </div>
             </div>
             <div class="row">
-                @isset($services)
-                    @foreach($services as $service)
-                        <div class="col-md-4 col-sm-4">
-                            <div class="service-info">
-                                <div class="media-body">
-                                    <div class="service-icon"><i class="fa fa-cog"></i></div>
-                                    <h3>{{ $service->name }}</h3>
-                                </div>
+                @foreach($services as $service)
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-info">
+                            <div class="media-body">
+                                <div class="service-icon"><i class="fa fa-cog"></i></div>
+                                <h3>{{ $service->name }}</h3>
                             </div>
                         </div>
-                    @endforeach
-                @endisset
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -91,30 +89,37 @@
                     </div>
             </div>
             <div class="row">
-                @isset($posts)
+                @if($posts->count() > 0)
                     @foreach($posts as $post)
                         <div class="col-md-6 col-sm-6">
-                         <!-- BLOG THUMB -->
-                         <div class="media blog-thumb">
-                              <div class="media-object media-left">
-                                   <a href="{{ url('/'.$post->slug) }}"><img src="{{ asset('storage/blog/'.$post->cover_img) }}" class="img-responsive" alt=""></a>
-                              </div>
-                              <div class="media-body blog-info">
-                                   <small><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($post->created_at)->isoFormat('MMMM Do YYYY, h:mm:ss a')}}</small>
-                                   <h3 class="blog-heading"><a href="blog-detail.html">{{ $post->title }}</a></h3>
-                                   <p>{!! \Illuminate\Support\Str::words($post->short_desc, 10,'....')  !!}</p>
-                                   <a href="{{ url('/'.$post->slug) }}" class="btn section-btn">Read article</a>
-                                   <small class="mg-t-20"><img class="front-author-img" src="{{ asset('storage/users/'.$post->user->pro_pic) }}"> &nbsp; {{ $post->user->name }}</small>
-                              </div>
-                         </div>
-                    </div>
+                            <div class="media blog-thumb">
+                                <div class="media-body blog-info">
+                                    <small style="display: inline-block;"><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($post->created_at)->isoFormat('MMMM Do YYYY, h:mm:ss a') }}</small>
+                                    <small style="display: inline-block;" class="media-blog-small pull-right"><i class="fa fa-eye"></i>{{ $post->view_count }}</small>
+                                    <h3 class="blog-heading"><a href="{{ url('/post/'.$post->slug) }}">{{ $post->title }}</a></h3>
+                                    <p>{!! \Illuminate\Support\Str::words($post->short_desc, 10,'....')  !!}</p>
+                                    <div class="row">
+                                        <div class="col-md-6 pull-left">
+                                            <a href="{{ url('/post/'.$post->slug) }}" target="__blank" class="btn section-btn">Read article</a>
+                                        </div>
+                                        <div class="col-md-6 pull-right">
+                                            <small class="mg-t-20"><img class="front-author-img" src="{{ asset('storage/users/'.$post->user->pro_pic) }}"> &nbsp; {{ $post->user->name }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
-                @endisset
+                @else
+                    <h2>No Post Available</h2>
+                @endif
             </div>
             <div class="row">
                     <div class="col-md-3 pull-right text-right">
-                        <a href="{{ url('/posts') }}" class=""> <button type="button" class="btn section-btn">Show all
+                        @if($posts->count() > 0)
+                            <a href="{{ url('/posts') }}" class=""> <button type="button" class="btn section-btn">Show all
                                 posts</button></a>
+                        @endif
                     </div>
             </div>
         </div>
@@ -132,93 +137,34 @@
                     </div>
             </div>
             <div class="responsive">
-                    <div class="slick-child">
-                        <!-- WORK THUMB -->
-                        <div class="work-thumb">
-                            <a href="{{ url('assets/frontend/images/work-image1.jpg') }}" class="image-popup">
-                                <img src="{{ asset('assets/frontend/images/work-image1.jpg') }}" class="img-responsive" alt="Work">
+                @if($projects->count() > 0)
+                    @foreach($projects as $project)
+                        <div class="slick-child">
+                            <div class="work-thumb">
+                                <a href="{{ url('assets/frontend/images/work-image1.jpg') }}" class="image-popup">
+                                    <img src="{{ asset('assets/frontend/images/work-image1.jpg') }}" class="img-responsive" alt="Work">
 
-                                <div class="work-info">
-                                        <h3>Clean &amp; Minimal</h3>
-                                        <small>Product Design</small>
-                                </div>
-                            </a>
+                                    <div class="work-info">
+                                            <h3>{{ $proect->title }}</h3>
+                                            <small>{{ $project->short_desc }}</small>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="slick-child">
-                        <!-- WORK THUMB -->
-                        <div class="work-thumb">
-                            <a href="{{ url('assets/frontend/images/work-image2.jpg') }}" class="image-popup">
-                                <img src="{{ asset('assets/frontend/images/work-image2.jpg') }}" class="img-responsive" alt="Work">
-
-                                <div class="work-info">
-                                        <h3>Studio Bag</h3>
-                                        <small>Branding</small>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slick-child">
-                        <!-- WORK THUMB -->
-                        <div class="work-thumb">
-                            <a href="{{ url('assets/frontend/images/work-image3.jpg') }}" class="image-popup">
-                                <img src="{{ asset('assets/frontend/images/work-image3.jpg') }}" class="img-responsive" alt="Work">
-
-                                <div class="work-info">
-                                        <h3>Frame Design</h3>
-                                        <small>Photography</small>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="slick-child">
-                        <div class="work-thumb">
-                            <a href="{{ url('assets/frontend/images/work-image4.jpg') }}" class="image-popup">
-                                <img src="{{ asset('assets/frontend/images/work-image4.jpg') }}" class="img-responsive" alt="Work">
-
-                                <div class="work-info">
-                                        <h3>Paint Work</h3>
-                                        <small>Art, Design</small>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slick-child">
-                        <div class="work-thumb">
-                            <a href="{{ url('assets/frontend/images/work-image4.jpg') }}" class="image-popup">
-                                <img src="{{ asset('assets/frontend/images/work-image4.jpg') }}" class="img-responsive" alt="Work">
-
-                                <div class="work-info">
-                                        <h3>Paint Work</h3>
-                                        <small>Art, Design</small>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slick-child">
-                        <div class="work-thumb">
-                            <a href="{{ url('assets/frontend/images/work-image4.jpg') }}" class="image-popup">
-                                <img src="{{ asset('assets/frontend/images/work-image4.jpg') }}" class="img-responsive" alt="Work">
-
-                                <div class="work-info">
-                                        <h3>Paint Work</h3>
-                                        <small>Art, Design</small>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
+                    @endforeach
+                @else
+                    <h2>No Project Available</h2>
+                @endif
             </div>
             <br>
             <div class="row">
                     <div class="col-md-3 pull-right text-right">
-                        <a href="{{ url('/projects') }}" class="">
-                            <button type="button" class="btn section-btn">Show all
-                                Project</button>
-                        </a>
+                        @if($projects->count() > 0)
+                            <a href="{{ url('/projects') }}" class="">
+                                <button type="button" class="btn section-btn">Show all
+                                    Project</button>
+                            </a>
+                        @endif
                     </div>
             </div>
         </div>

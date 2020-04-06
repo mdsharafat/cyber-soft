@@ -7,14 +7,10 @@ use App\Http\Requests;
 
 use App\Service;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ServicesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\View\View
-     */
     public function index(Request $request)
     {
         $keyword = $request->get('search');
@@ -30,25 +26,16 @@ class ServicesController extends Controller
         return view('admin.services.index', compact('services'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\View\View
-     */
     public function create()
     {
         return view('admin.services.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|unique:services'
+        ]);
         
         $requestData = $request->all();
         
@@ -57,13 +44,6 @@ class ServicesController extends Controller
         return redirect('admin/services')->with('flash_message', 'Service added!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     *
-     * @return \Illuminate\View\View
-     */
     public function show($id)
     {
         $service = Service::findOrFail($id);
@@ -71,13 +51,6 @@ class ServicesController extends Controller
         return view('admin.services.show', compact('service'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     *
-     * @return \Illuminate\View\View
-     */
     public function edit($id)
     {
         $service = Service::findOrFail($id);
@@ -85,17 +58,15 @@ class ServicesController extends Controller
         return view('admin.services.edit', compact('service'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param  int  $id
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
     public function update(Request $request, $id)
     {
-        
+        $request->validate([
+            'name' => [
+                'required',
+                Rule::unique('services')->ignore(Service::find($id)),
+            ]
+        ]);
+
         $requestData = $request->all();
         
         $service = Service::findOrFail($id);
@@ -104,13 +75,6 @@ class ServicesController extends Controller
         return redirect('admin/services')->with('flash_message', 'Service updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
     public function destroy($id)
     {
         Service::destroy($id);

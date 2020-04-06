@@ -2,7 +2,7 @@
     <div class="col-md-6">
         <div class="nk-int-st">
             <label for="title" class="control-label">{{ 'Title' }}</label>
-            <input class="form-control" name="title" type="text" id="title" value="{{ isset($category->title) ? $category->title : ''}}" >
+            <input required class="form-control" name="title" type="text" id="title" value="{{ isset($category->title) ? $category->title : ''}}" >
             {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
         </div>
     </div>

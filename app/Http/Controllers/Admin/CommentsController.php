@@ -57,7 +57,7 @@ class CommentsController extends Controller
             $comment->save();
         }
 
-        return redirect()->back()->with('commentMessage', 'Your comment is under review.');
+        return redirect()->back()->with('commentMessage', 'Thank You for comment. Your comment is pending.');
     }
 
     public function pendingComments()

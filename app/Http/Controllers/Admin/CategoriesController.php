@@ -9,6 +9,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use DB;
+use Illuminate\Validation\Rule;
 
 class CategoriesController extends Controller
 {
@@ -25,6 +26,9 @@ class CategoriesController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|unique:categories'
+        ]);
         $category        = new Category();
         $category->title = $request->title;
         $category->slug  = Str::of($request->title)->slug('-');
@@ -46,6 +50,13 @@ class CategoriesController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => [
+                'required',
+                Rule::unique('categories')->ignore(Category::find($id)),
+            ]
+        ]);
+
         DB::table('categories')
             ->where('id', $id)
             ->update(['title' => $request->title, 'slug' => Str::of($request->title)->slug('-')]);

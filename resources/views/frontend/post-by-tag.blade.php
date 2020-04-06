@@ -43,30 +43,31 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            @if($posts->count() > 0)
-                                @foreach($posts as $post)
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="media blog-thumb">
-                                        <div class="media-body blog-info">
-                                            <small class="media-blog-small"><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($post->created_at)->isoFormat('MMMM Do YYYY, h:mm:ss a') }}</small>
-                                            <small class="media-blog-small pull-right"><i class="fa fa-eye"></i>{{ $post->view_count }}</small>
-                                            <h3><a href="{{ url('/post/'.$post->slug) }}">{{ $post->title }}</a></h3>
-                                            <p>{!! \Illuminate\Support\Str::words($post->short_desc, 10,'....')  !!}</p>
-                                            <div class="row">
-                                                <div class="col-md-6 pull-left">
-                                                    <a href="{{ url('/post/'.$post->slug) }}" target="__blank" class="btn section-btn">Read article</a>
-                                                </div>
-                                                <div class="col-md-6 pull-right">
-                                                    <small class="mg-t-20"><img class="front-author-img" src="{{ asset('storage/users/'.$post->user->pro_pic) }}"> &nbsp; {{ $post->user->name }}</small>
+                            @if($postByTag->posts->count() > 0)
+                                @foreach($postByTag->posts as $post)
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="media blog-thumb">
+                                            <div class="media-body blog-info">
+                                                <small class="media-blog-small"><i class="fa fa-clock-o"></i> {{ \Carbon\Carbon::parse($post->created_at)->isoFormat('MMMM Do YYYY, h:mm:ss a') }}</small>
+                                                <small class="media-blog-small pull-right"><i class="fa fa-eye"></i>{{ $post->view_count }}</small>
+                                                <h3><a href="{{ url('/post/'.$post->slug) }}">{{ $post->title }}</a></h3>
+                                                <p>{!! \Illuminate\Support\Str::words($post->short_desc, 10,'....')  !!}</p>
+                                                <div class="row">
+                                                    <div class="col-md-6 pull-left">
+                                                        <a href="{{ url('/post/'.$post->slug) }}" target="__blank" class="btn section-btn">Read article</a>
+                                                    </div>
+                                                    <div class="col-md-6 pull-right">
+                                                        <small class="mg-t-20"><img class="front-author-img" src="{{ asset('storage/users/'.$post->user->pro_pic) }}"> &nbsp; {{ $post->user->name }}</small>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
+                            @else
+                                <h2 class="text-center"> Sorry, No post available.</h2>
                             @endif
                         </div>
-                        {{ $posts->links() }}
                     </div>
             </div>
         </div>

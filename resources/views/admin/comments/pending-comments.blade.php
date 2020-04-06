@@ -33,6 +33,7 @@
                                                         <th>Name</th>
                                                         <th>Email</th>
                                                         <th>Post</th>
+                                                        <th>Comments</th>
                                                         <th>Platform</th>
                                                         <th>Browser</th>
                                                         <th>User Agent</th>
@@ -53,6 +54,7 @@
                                                             <td>{{ $item->commenter->name }}</td>
                                                             <td>{{ $item->commenter->email }}</td>
                                                             <td>{{ $item->post->slug }}</td>
+                                                            <td>{{ $item->comment }}</td>
                                                             <td>{{ $item->platform }}</td>
                                                             <td>{{ $item->browser }}</td>
                                                             <td>{{ $item->user_agent }}</td>

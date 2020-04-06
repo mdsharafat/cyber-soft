@@ -59,6 +59,8 @@
                             </li>
                             <li><a href="{{ url('admin/tags') }}">Tags</a>
                             </li>
+                            <li><a href="{{ url('admin/company-profile') }}">Company Profile</a>
+                            </li>
                         </ul>
                     </div>
                     <div id="Account" class="tab-pane notika-tab-menu-bg animated flipInX">

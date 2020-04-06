@@ -9,6 +9,7 @@ use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use DB;
+use Illuminate\Validation\Rule;
 
 class TagsController extends Controller
 {
@@ -25,7 +26,9 @@ class TagsController extends Controller
 
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'title' => 'required|unique:tags'
+        ]);
         $tag        = new Tag();
         $tag->title = $request->title;
         $tag->slug  = Str::of($request->title)->slug('-');
@@ -47,6 +50,13 @@ class TagsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => [
+                'required',
+                Rule::unique('tags')->ignore(Tag::find($id)),
+            ]
+        ]);
+
         DB::table('tags')
             ->where('id', $id)
             ->update(['title' => $request->title, 'slug' => Str::of($request->title)->slug('-')]);

@@ -20,5 +20,5 @@ class CompanyProfile extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'moto', 'email', 'phone', 'intro', 'logo', 'pro_pic', 'location', 'address', 'copyright'];
+    protected $fillable = ['name', 'moto', 'email', 'phone', 'intro', 'logo', 'pro_pic', 'location', 'address', 'copyright', 'fb_link', 'tw_link', 'ln_link'];
 }

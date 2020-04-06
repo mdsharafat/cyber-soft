@@ -12,6 +12,7 @@ use Illuminate\Http\File;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Validation\Rule;
 
 class PostsController extends Controller
 {
@@ -39,18 +40,15 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|unique:posts'
+        ]);
         $post             = new Post();
         $post->title      = $request->title;
         $post->content    = $request->content;
         $post->user_id    = 1;
         $post->slug       = Str::of($request->title)->slug('-');
         $post->short_desc = $request->short_desc;
-
-        if ($request->hasfile('cover_img')) {
-            $image           = $request->file('cover_img');
-            $uploadPath      = 'storage/blog/';
-            $post->cover_img = $this->uploadImage($image, $uploadPath);
-        }
 
         if($request->is_published) {
             $post->is_published = 1;
@@ -77,6 +75,12 @@ class PostsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => [
+                'required',
+                Rule::unique('posts')->ignore(Post::find($id)),
+            ]
+        ]);
         $post        = Post::findOrFail($id);
         $requestData = array();
 
@@ -84,16 +88,6 @@ class PostsController extends Controller
         $requestData['content']    = $request->content;
         $requestData['slug']       = Str::of($request->title)->slug('-');
         $requestData['short_desc'] = $request->short_desc;
-
-        if ($request->hasfile('cover_img')) {
-            if ($post->cover_img) {
-                $delete_cover_img = 'storage/blog/'.$post->cover_img;
-                unlink($delete_cover_img);
-            }
-            $image               = $request->file('cover_img');
-            $uploadPath          = 'storage/blog/';
-            $requestData['cover_img'] = $this->uploadImage($image, $uploadPath);
-        }
         
         if($request->is_published && $request->is_published == "on") {
             $requestData['is_published'] = 1;
