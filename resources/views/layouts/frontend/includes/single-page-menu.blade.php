@@ -9,7 +9,7 @@
                 </button>
 
                 <!-- lOGO TEXT HERE -->
-                <a href="index.html" class="navbar-brand">CyberSoft</a>
+                <a href="{{ url('/') }}" class="navbar-brand">CyberSoft</a>
         </div>
 
         <!-- MENU LINKS -->

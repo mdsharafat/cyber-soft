@@ -238,30 +238,6 @@
                                                 {!! $errors->first('ln_link', '<p class="help-block">:message</p>') !!}
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="nk-int-st">
-                                                <label for="vb_link" class="control-label">{{ 'Viber' }}</label>
-                                                <input class="form-control" name="vb_link" type="text" id="vb_link" value="{{ isset($companyProfile->vb_link) ? $companyProfile->vb_link : ''}}" >
-                                                {!! $errors->first('vb_link', '<p class="help-block">:message</p>') !!}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mg-t-20">
-                                        <div class="col-md-6">
-                                            <div class="nk-int-st">
-                                                <label for="wa_link" class="control-label">{{ 'Whatsapp' }}</label>
-                                                <input class="form-control" name="wa_link" type="text" id="wa_link" value="{{ isset($companyProfile->wa_link) ? $companyProfile->wa_link : ''}}" >
-                                                {!! $errors->first('wa_link', '<p class="help-block">:message</p>') !!}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="nk-int-st">
-                                                <label for="sk_link" class="control-label">{{ 'Skype' }}</label>
-                                                <input class="form-control" name="sk_link" type="text" id="sk_link" value="{{ isset($companyProfile->sk_link) ? $companyProfile->sk_link : ''}}" >
-                                                {!! $errors->first('sk_link', '<p class="help-block">:message</p>') !!}
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="row">

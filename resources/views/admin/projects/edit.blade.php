@@ -1,5 +1,4 @@
 @extends('layouts.admin.master-layout')
-
 @section('header-script')
     <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-select/bootstrap-select.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
@@ -7,7 +6,7 @@
         .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
             width: 100%;
         }
-                .file-input {
+        .file-input {
         display: inline-block;
         text-align: left;
         background: #fff;
@@ -76,10 +75,8 @@
     .lh {
         line-height: 52px;
     }
-        
     </style>
 @endsection
-
 @section('main-content')
     <div class="container">
         <div class="row">
@@ -98,18 +95,18 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h3>Edit Post</h3>
+                                        <h3>Edit Project</h3>
                                     </div>
                                     <div class="col-md-4 text-right">
-                                        <a href="{{ url('/admin/posts') }}" title="Back"><button class="btn btn-warning primary-icon-notika waves-effect"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                                        <a href="{{ url('/admin/projects') }}" title="Back"><button class="btn btn-warning primary-icon-notika waves-effect"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                                     </div>
                                 </div>
                                 <hr>
-                                <form method="POST" action="{{ url('/admin/posts/' . $post->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                                <form method="POST" action="{{ url('/admin/projects/' . $project->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                                     {{ method_field('PATCH') }}
                                     {{ csrf_field() }}
 
-                                    @include ('admin.posts.form', ['formMode' => 'edit'])
+                                    @include ('admin.projects.form', ['formMode' => 'edit'])
 
                                 </form>
                             </div>
@@ -123,12 +120,7 @@
 @endsection
 
 @section('footer-script')
-    <script src="{{ asset('assets/admin/js/bootstrap-select/bootstrap-select.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
     <script>
-        $(document).on('ready', function() {
-            $('#summernote').summernote();
-        });
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

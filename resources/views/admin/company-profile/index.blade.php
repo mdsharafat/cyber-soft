@@ -38,9 +38,6 @@
                                                         <th>Facebook</th>
                                                         <th>Twitter</th>
                                                         <th>Linkedin</th>
-                                                        <th>Viber</th>
-                                                        <th>Whatsapp</th>
-                                                        <th>Skype</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
@@ -60,9 +57,6 @@
                                                             <td>@isset($companyProfile->fb_link) {{ $companyProfile->fb_link }} @endisset</td>
                                                             <td>@isset($companyProfile->tw_link) {{ $companyProfile->tw_link }} @endisset</td>
                                                             <td>@isset($companyProfile->ln_link) {{ $companyProfile->ln_link }} @endisset</td>
-                                                            <td>@isset($companyProfile->vb_link) {{ $companyProfile->vb_link }} @endisset</td>
-                                                            <td>@isset($companyProfile->wa_link) {{ $companyProfile->wa_link }} @endisset</td>
-                                                            <td>@isset($companyProfile->sk_link) {{ $companyProfile->sk_link }} @endisset</td>
                                                             <td>
                                                                 <a href="{{ url('/admin/company-profile/edit') }}" title="Edit Company Profile"><button class="btn btn-primary primary-icon-notika waves-effect"><i class="notika-icon notika-edit"></i></button></a>
                                                             </td>

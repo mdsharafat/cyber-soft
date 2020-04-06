@@ -29,9 +29,6 @@ class CreateCompanyProfilesTable extends Migration
             $table->string('fb_link')->nullable();
             $table->string('tw_link')->nullable();
             $table->string('ln_link')->nullable();
-            $table->string('vb_link')->nullable();
-            $table->string('wa_link')->nullable();
-            $table->string('sk_link')->nullable();
             $table->timestamps();
         });
     }

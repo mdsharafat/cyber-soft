@@ -19,6 +19,7 @@
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
+                                    <tr><th>Cover</th><td class="text-center"><img src="{{ asset('storage/blog/'.$post->cover_img) }}"> </td></tr>
                                     <tr><th>ID</th><td>{{ $post->id }}</td></tr>
                                     <tr><th> Title </th><td> <h4>{{ $post->title }}</h4></td></tr>
                                     <tr><th>Publication Status</th><td> @if($post->is_published == 0 ){{ "Draft" }} @else {{ "Published" }} @endif</td></tr>

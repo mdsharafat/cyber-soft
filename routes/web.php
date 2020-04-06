@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Frontend\FrontendController@index')->name('home');
 Route::get('/posts', 'Frontend\FrontendController@posts');
-Route::get('/single-post', 'Frontend\FrontendController@singlePost');
+Route::get('/{slug}', 'Frontend\FrontendController@singlePost');
 Route::get('/projects', 'Frontend\FrontendController@projects');
 
 Route::group(['prefix' => 'C127Wp-aqlg-SZ'], function() {
@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('admin/tags', 'Admin\\TagsController');
     Route::resource('admin/categories', 'Admin\\CategoriesController');
     Route::resource('admin/posts', 'Admin\\PostsController');
+    Route::resource('admin/projects', 'Admin\\ProjectsController');
     Route::get('/admin/posts/publish/{id}', 'Admin\PostsController@publishPost');
     Route::get('admin/C127Wp-aqlg-SZ/change-my-password', 'Admin\UsersController@changeMyPassword');
     Route::POST('admin/C127Wp-aqlg-SZ/change-my-password', 'Admin\UsersController@changePasswordSubmit');

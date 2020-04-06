@@ -9,7 +9,7 @@
                 </button>
 
                 <!-- lOGO TEXT HERE -->
-                <a href="index.html" class="navbar-brand">CyberSoft</a>
+                <a href="{{ url('/') }}" class="navbar-brand">CyberSoft</a>
         </div>
 
         <!-- MENU LINKS -->
@@ -19,7 +19,7 @@
                     <li><a href="#about" class="smoothScroll">About</a></li>
                     <li><a href="#services" class="smoothScroll">Services</a></li>
                     <li><a href="#blog" class="smoothScroll">Blog</a></li>
-                    <li><a href="#work" class="smoothScroll">Our Work</a></li>
+                    <li><a href="#work" class="smoothScroll">Projects</a></li>
                     <li><a href="#contact" class="smoothScroll">Contacts</a></li>
                 </ul>
 

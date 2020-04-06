@@ -5,10 +5,12 @@
 
                 <div class="col-md-6 col-sm-12">
                     <div class="home-info">
-                        <h1>We Provide Complete Web Application Solution</h1>
-                        <a href="#about" class="btn section-btn smoothScroll">Start a project</a>
+                        <h1>
+                            {{ $companyProfile->moto }}
+                        </h1>
+                        <a href="#contact" class="btn section-btn smoothScroll">Start a project</a>
                         <span>
-                            CALL US (+66) 010-020-0340
+                            Send us email at {{ $companyProfile->email }}
                             <small>For any inquiry</small>
                         </span>
                     </div>
@@ -17,8 +19,8 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="home-video">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <!-- <iframe src="https://www.youtube.com/embed/AqcjdkPMPJA" frameborder="0"
-                                    allowfullscreen></iframe> -->
+                            {{-- <iframe src="https://www.youtube.com/embed/AqcjdkPMPJA" frameborder="0"
+                                    allowfullscreen></iframe> --}}
                         </div>
                     </div>
                 </div>

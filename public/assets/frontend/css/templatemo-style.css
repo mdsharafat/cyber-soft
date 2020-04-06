@@ -59,6 +59,18 @@ http://www.templatemo.com/tm-509-hydro
     font-weight: 500;
   }
 
+  .mg-t-10 {
+    margin-top: 10px;
+  }
+
+  .mg-t-20 {
+    margin-top: 20px;
+  }
+
+  .mg-t-30 {
+    margin-top: 30px;
+  }
+
 
   /*---------------------------------------
      GENERAL               
@@ -575,7 +587,12 @@ http://www.templatemo.com/tm-509-hydro
     border-radius: 3px;
     text-align: left;
     margin-bottom: 30px;
-    height: 220px;
+    height: 350px;
+  }
+
+  .blog-heading {
+    font-size: 1.3em;
+    font-weight: 900;
   }
 
   .media.blog-thumb .media-left {
@@ -681,6 +698,12 @@ http://www.templatemo.com/tm-509-hydro
 
   .media-body .media-blog-small {
     display: inline;
+  }
+
+  .front-author-img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
   }
 
   .author {

@@ -2,7 +2,6 @@
 
 @section('header-script')
     <link rel="stylesheet" href="{{ asset('assets/admin/css/jquery.dataTables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/wave/button.css') }}">
 @endsection
 
 @section('main-content')
@@ -12,53 +11,47 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="data-table-area">
-                            @if(Session::has('flash_message'))
-                                <h4 class="text-success text-center">{{ Session::get('flash_message') }}</h4>
-                            @endif
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="data-table-list">
                                         <div class="basic-tb-hd">
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    <h2>Post Lists</h2>
+                                                    <h2>Project Lists</h2>
                                                 </div>
                                                 <div class="col-md-4 text-right">
-                                                    <a href="{{ url('/admin/posts/create') }}" class="btn btn-success btn-sm" title="Add New Post">
+                                                    <a href="{{ url('/admin/projects/create') }}" class="btn btn-success btn-sm" title="Add New Project">
                                                         <i class="fa fa-plus" aria-hidden="true"></i> Add New
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="table-responsive">
-                                            <table id="data-table-basic" class="table table-striped" style="width: 1800px;">
+                                            <table id="data-table-basic" class="table table-striped" style="width: 2000px;">
                                                 <thead>
                                                     <tr>
                                                         <th>SN</th>
-                                                        <th>Cover</th>
+                                                        <th>Image</th>
                                                         <th>Title</th>
-                                                        <th>Slug</th>
-                                                        <th>Author</th>
+                                                        <th>Short Desc</th>
+                                                        <th>Url</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($posts as $item)
+                                                    @foreach($projects as $item)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
-                                                            <td>@isset($item->cover_img) <img style="width: 50px; height: 50px;" src="{{ asset('storage/blog/'.$item->cover_img) }}" alt="Cover"> @endisset</td>
-                                                            <td>@isset($item->title) {{ $item->title }} @endisset</td>
-                                                            <td>@isset($item->slug){{ $item->slug }} @endisset</td>
-                                                            <td>@isset($item->user_id){{ $item->user->name }} @endisset</td>
+                                                            <td>@isset($item->image) <img style="width: 50px; height: 50px;" src="{{ asset('storage/projects/'.$item->image) }}" alt="Image"> @endisset</td>
+                                                            <td>{{ $item->title }}</td><td>{{ $item->short_desc }}</td><td>{{ $item->url }}</td>
                                                             <td>
-                                                                @if($item->is_published == 0)<a href="{{ url('/admin/posts/publish/' . $item->id) }}" title="Publish"><button class="btn btn-lightgreen lightgreen-icon-notika waves-effect"><i class="notika-icon notika-checked"></i></button></a> @endif
-                                                                <a href="{{ url('/admin/posts/' . $item->id) }}" title="View Post"><button class="btn btn-success success-icon-notika waves-effect"><i class="notika-icon notika-eye"></i></button></a>
-                                                                <a href="{{ url('/admin/posts/' . $item->id . '/edit') }}" title="Edit Post"><button class="btn btn-primary primary-icon-notika waves-effect"><i class="notika-icon notika-edit"></i></button></a>
+                                                                <a href="{{ url('/admin/projects/' . $item->id) }}" title="View Project"><button class="btn btn-success success-icon-notika waves-effect"><i class="notika-icon notika-eye"></i></button></a>
+                                                                <a href="{{ url('/admin/projects/' . $item->id . '/edit') }}" title="Edit Project"><button class="btn btn-primary primary-icon-notika waves-effect"><i class="notika-icon notika-edit"></i></button></a>
                                                                 
-                                                                <form method="POST" action="{{ url('/admin/posts' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                                <form method="POST" action="{{ url('/admin/projects' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                                     {{ method_field('DELETE') }}
                                                                     {{ csrf_field() }}
-                                                                    <button type="submit" class="btn btn-danger danger-icon-notika waves-effect" title="Delete Post" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                                    <button type="submit" class="btn btn-danger danger-icon-notika waves-effect" title="Delete Project" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                                                 </form>
                                                             </td>
                                                         </tr>

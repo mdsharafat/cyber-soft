@@ -45,9 +45,6 @@ class NecessaryTableSeeder extends Seeder
         $companyProfile->fb_link   = null;
         $companyProfile->tw_link   = null;
         $companyProfile->ln_link   = null;
-        $companyProfile->vb_link   = null;
-        $companyProfile->wa_link   = null;
-        $companyProfile->sk_link   = null;
         $companyProfile->save();
 
         //skills table

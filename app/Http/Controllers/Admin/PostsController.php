@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Post;
 use App\Category;
 use App\Tag;
+use Illuminate\Http\File;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use DB;
@@ -29,13 +30,28 @@ class PostsController extends Controller
         return view('admin.posts.create', compact('post','categories', 'tags'));
     }
 
+    public function uploadImage($image, $uploadPath)
+    {
+        $imageName = Str::random(10).'.'.$image->getClientOriginalExtension();
+        $image->move($uploadPath, $imageName);
+        return $imageName;
+    }
+
     public function store(Request $request)
     {
-        $post          = new Post();
-        $post->title   = $request->title;
-        $post->content = $request->content;
-        $post->user_id = 1;
-        $post->slug    = Str::of($request->title)->slug('-');
+        $post             = new Post();
+        $post->title      = $request->title;
+        $post->content    = $request->content;
+        $post->user_id    = 1;
+        $post->slug       = Str::of($request->title)->slug('-');
+        $post->short_desc = $request->short_desc;
+
+        if ($request->hasfile('cover_img')) {
+            $image           = $request->file('cover_img');
+            $uploadPath      = 'storage/blog/';
+            $post->cover_img = $this->uploadImage($image, $uploadPath);
+        }
+
         if($request->is_published) {
             $post->is_published = 1;
         }
@@ -67,6 +83,17 @@ class PostsController extends Controller
         $requestData['title']      = $request->title;
         $requestData['content']    = $request->content;
         $requestData['slug']       = Str::of($request->title)->slug('-');
+        $requestData['short_desc'] = $request->short_desc;
+
+        if ($request->hasfile('cover_img')) {
+            if ($post->cover_img) {
+                $delete_cover_img = 'storage/blog/'.$post->cover_img;
+                unlink($delete_cover_img);
+            }
+            $image               = $request->file('cover_img');
+            $uploadPath          = 'storage/blog/';
+            $requestData['cover_img'] = $this->uploadImage($image, $uploadPath);
+        }
         
         if($request->is_published && $request->is_published == "on") {
             $requestData['is_published'] = 1;
@@ -84,6 +111,12 @@ class PostsController extends Controller
 
     public function destroy($id)
     {
+        $post = Post::findOrFail($id);
+        if ($post->cover_img) {
+            $delete_cover_img = 'storage/blog/'.$post->cover_img;
+            unlink($delete_cover_img);
+        }
+        
         Post::destroy($id);
         return redirect('admin/posts')->with('flash_message', 'Post deleted!');
     }
