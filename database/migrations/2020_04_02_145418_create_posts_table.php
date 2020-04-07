@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('short_desc')->nullable();
             $table->integer('view_count')->default(0);
             $table->boolean('is_published')->default(0);
+            $table->boolean('is_email_sent')->default(0);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

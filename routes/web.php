@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/pending-comment/{id}', 'Admin\CommentsController@pendingComment');
     Route::get('/admin/pending-comments', 'Admin\CommentsController@pendingComments');
     Route::get('/admin/approved-comments', 'Admin\CommentsController@approvedComments');
+    Route::get('/admin/A-l23VtZ-dskR54-8/send-email-to-subscriber/{id}', 'Admin\MailController@sendMail');
     Route::DELETE('/delete-comment/{id}', 'Admin\CommentsController@destroy');
 
     Route::resource('admin/skills', 'Admin\\SkillsController');

@@ -22,34 +22,36 @@
     <section id="blog-detail" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row">
-                    <div class="col-md-offset-1 col-md-10 col-sm-12">
-                        <div class="blog-detail-thumb">
-                            <div class="author">
-                                <div class="author-details">
-                                        <div class="author-img">
-                                            <img src="{{ asset('assets/frontend/images/2.jpg') }}" alt="author">
-                                        </div>
-                                        <small class="author-name">By {{ $post->user->name }} / published on {{ \Carbon\Carbon::parse($post->created_at)->isoFormat('MMMM Do YYYY, h:mm:ss a') }}</small>
-                                </div>
-                            </div>
-                            <h2>{{ $post->title }}</h2>
-                                {!! $post->content !!}
-                            <div class="post-related-tag">
-                                @foreach($post->tags as $tag)
-                                   <a href="{{ url('tag/'.$tag->slug) }}"><span class="badge tag-span">{{ $tag->title }}</span></a>
-                                @endforeach
-                            </div>
-                            
-                            <div class="blog-social-share">
-                                <h4>Share this article</h4>
-                                <a href="https://www.facebook.com/templatemo" class="btn btn-primary"><i
-                                            class="fa fa-facebook"></i>facebook</a>
-                                <a href="#" class="btn btn-success"><i class="fa fa-twitter"></i>twitter</a>
-                                <a href="#" class="btn btn-danger"><i class="fa fa-linkedin"></i>linkedin</a>
+                <div class="col-md-2">
+                    <div class="blog-ads-vertical">
+                        <h4>Open For Advertising</h4>
+                    </div>
+                    <div class="blog-ads-vertical">
+                        <h4>Open For Advertising</h4>
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-12">
+                    <div class="blog-detail-thumb">
+                        <div class="blog-ads">
+                            <h4>Open For Advertising</h4>
+                        </div>
+                        <div class="author">
+                            <div class="author-details">
+                                    <div class="author-img">
+                                        <img src="{{ asset('assets/frontend/images/2.jpg') }}" alt="author">
+                                    </div>
+                                    <small class="author-name">By {{ $post->user->name }} / published on {{ \Carbon\Carbon::parse($post->created_at)->isoFormat('MMMM Do YYYY, h:mm:ss a') }}</small>
                             </div>
                         </div>
+                        <h2>{{ $post->title }}</h2>
+                            {!! $post->content !!}
+                        <div class="post-related-tag">
+                            @foreach($post->tags as $tag)
+                                <a href="{{ url('tag/'.$tag->slug) }}"><span class="badge tag-span">{{ $tag->title }}</span></a>
+                            @endforeach
+                        </div>
                     </div>
-
+                </div>
             </div>
         </div>
     </section>
@@ -268,4 +270,6 @@
         })
     });
 </script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e8be88eea77955a"></script>
 @endsection

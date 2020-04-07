@@ -50,6 +50,7 @@
                                                             <td>@isset($item->user_id){{ $item->user->name }} @endisset</td>
                                                             <td>
                                                                 @if($item->is_published == 0)<a href="{{ url('/admin/posts/publish/' . $item->id) }}" title="Publish"><button class="btn btn-lightgreen lightgreen-icon-notika waves-effect"><i class="notika-icon notika-checked"></i></button></a> @endif
+                                                                @if($item->is_email_sent == 0)<a href="{{ url('/admin/A-l23VtZ-dskR54-8/send-email-to-subscriber/' . $item->id) }}" title="Send Mail"><button class="btn btn-teal teal-icon-notika waves-effect"><i class="notika-icon notika-mail"></i></button></a> @endif
                                                                 <a href="{{ url('/admin/posts/' . $item->id) }}" title="View Post"><button class="btn btn-success success-icon-notika waves-effect"><i class="notika-icon notika-eye"></i></button></a>
                                                                 <a href="{{ url('/admin/posts/' . $item->id . '/edit') }}" title="Edit Post"><button class="btn btn-primary primary-icon-notika waves-effect"><i class="notika-icon notika-edit"></i></button></a>
                                                                 

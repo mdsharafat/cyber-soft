@@ -141,8 +141,8 @@
                     @foreach($projects as $project)
                         <div class="slick-child">
                             <div class="work-thumb">
-                                <a href="{{ url('assets/frontend/images/work-image1.jpg') }}" class="image-popup">
-                                    <img src="{{ asset('assets/frontend/images/work-image1.jpg') }}" class="img-responsive" alt="Work">
+                                <a href="{{ asset('storage/projects/'.$project->image) }}" class="image-popup">
+                                    <img src="{{ asset('storage/projects/'.$project->image) }}" class="img-responsive" alt="Work">
 
                                     <div class="work-info">
                                             <h3>{{ $project->title }}</h3>

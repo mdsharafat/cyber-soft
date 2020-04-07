@@ -9,6 +9,7 @@ use App\Skill;
 use App\Service;
 use Illuminate\Support\Str;
 use App\Tag;
+use App\Project;
 
 class NecessaryTableSeeder extends Seeder
 {
@@ -22,7 +23,7 @@ class NecessaryTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         // user table
-        $user           = new User;
+        $user           = new User();
         $user->name     = 'Mohammad Sharafat';
         $user->email    = 'sharafat.sohan047@gmail.com';
         $user->password = Hash::make('Snkadw)#@psgHS8@');
@@ -31,7 +32,7 @@ class NecessaryTableSeeder extends Seeder
         $user->save();
 
         // company profile table
-        $companyProfile = new CompanyProfile;
+        $companyProfile = new CompanyProfile();
         $companyProfile->name      = 'CyberSoft';
         $companyProfile->moto      = 'We Provide Complete Web Application Solution';
         $companyProfile->email     = 'info@cybersoftbd.net';
@@ -60,7 +61,7 @@ class NecessaryTableSeeder extends Seeder
         ];
         
         foreach($skillArray as $key => $value){
-            $skill = new Skill;
+            $skill = new Skill();
             $skill->name = $value[0];
             $skill->progress = $value[1];
             $skill->save();
@@ -77,7 +78,7 @@ class NecessaryTableSeeder extends Seeder
         ];
 
         foreach($serviceArray as $key => $value){
-            $service = new Service;
+            $service = new Service();
             $service->name = $value;
             $service->save();
         }
@@ -96,7 +97,7 @@ class NecessaryTableSeeder extends Seeder
         ];
 
         foreach($categoryArray as $value){
-            $category = new Category;
+            $category = new Category();
             $category->title = $value;
             $category->slug = Str::of($value)->slug('-');
             $category->save();
@@ -125,10 +126,29 @@ class NecessaryTableSeeder extends Seeder
             'seo'
         ];
         foreach($tagArray as $value){
-            $tag = new Tag;
+            $tag = new Tag();
             $tag->title = $value;
             $tag->slug = Str::of($value)->slug('-');
             $tag->save();
+        }
+
+        //projects table
+        $projectContents = [
+            0 => ['MJ Auto Japan Ltd', 'html, css, javascript, jquery, php, laravel', '', 'mj-auto-ltd.png' ],
+            1 => ['Claimnwin', 'html, css, javascript, jquery, php, laravel', 'http://webencoder.space/demo/demo56/public Real: http://claimnwin.com', 'claimnwin.png'],
+            2 => ['Econosurance', 'html, css, javascript, jquery, php, laravel', 'http://webencoder.space/demo/demo54/public/ Real: http://econosurance.com', 'eco54.png'],
+            3 => ['My Money Life', 'html, css, javascript, jquery, php, laravel', 'http://webencoder.space/demo/demo62/public/ Admin: http://webencoder.space/demo/demo62/public/login', 'my-money-life.png'],
+            4 => ['Agent Wordpress Plugins', 'html, css, jquery, php', '', 'agent.png'],
+            5 => ['Makhdom', 'html, css, bootstrap, laravel', '', 'mkhdom.png']
+        ];
+
+        foreach($projectContents as $item){
+            $project             = new Project();
+            $project->title      = $item[0];
+            $project->short_desc = $item[1];
+            $project->url        = $item[2];
+            $project->image      = $item[3];
+            $project->save();
         }
     }
 }

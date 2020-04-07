@@ -66,7 +66,8 @@ class FrontendController extends Controller
 
     public function projects()
     {
-        return view('frontend.projects');
+        $projects = Project::latest()->get();
+        return view('frontend.projects', compact('projects'));
     }
 
     public function searchPost(Request $request)
