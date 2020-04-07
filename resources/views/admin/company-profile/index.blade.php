@@ -32,7 +32,6 @@
                                                         <th>Introduction Text</th>
                                                         <th>Logo</th>
                                                         <th>Pic</th>
-                                                        <th>Location</th>
                                                         <th>Address</th>
                                                         <th>Copyright</th>
                                                         <th>Facebook</th>
@@ -51,7 +50,6 @@
                                                             <td>@isset($companyProfile->intro) {{ $companyProfile->intro }} @endisset</td>
                                                             <td>@isset($companyProfile->logo) <img style="width: 90px; height: 60px;" src="{{ asset('storage/company-profile/'.$companyProfile->logo) }}" alt="logo"> @endisset</td>
                                                             <td>@isset($companyProfile->pro_pic) <img style="width: 90px; height: 60px;" src="{{ asset('storage/company-profile/'.$companyProfile->pro_pic) }}" alt="Pro Pic"> @endisset</td>
-                                                            <td>@isset($companyProfile->location) {{ $companyProfile->location }} @endisset</td>
                                                             <td>@isset($companyProfile->address) {{ $companyProfile->address }} @endisset</td>
                                                             <td>@isset($companyProfile->copyright) {{ $companyProfile->copyright }} @endisset</td>
                                                             <td>@isset($companyProfile->fb_link) {{ $companyProfile->fb_link }} @endisset</td>

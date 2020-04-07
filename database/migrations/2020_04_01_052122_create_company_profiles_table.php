@@ -23,7 +23,6 @@ class CreateCompanyProfilesTable extends Migration
             $table->text('intro')->nullable();
             $table->string('logo')->nullable();
             $table->string('pro_pic')->nullable();
-            $table->text('location')->nullable();
             $table->string('address')->nullable();
             $table->string('copyright')->nullable();
             $table->string('fb_link')->nullable();

@@ -40,7 +40,6 @@ class NecessaryTableSeeder extends Seeder
         $companyProfile->intro     = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.';
         $companyProfile->logo      = null;
         $companyProfile->pro_pic   = 'pro_pic.jpg';
-        $companyProfile->location  = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945';
         $companyProfile->address   = 'Wabda road, Post office para, Sabira villa, Chuadanga';
         $companyProfile->copyright = '2020 All right reserved.';
         $companyProfile->fb_link   = null;
@@ -134,12 +133,12 @@ class NecessaryTableSeeder extends Seeder
 
         //projects table
         $projectContents = [
-            0 => ['MJ Auto Japan Ltd', 'html, css, javascript, jquery, php, laravel', '', 'mj-auto-ltd.png' ],
-            1 => ['Claimnwin', 'html, css, javascript, jquery, php, laravel', 'http://webencoder.space/demo/demo56/public Real: http://claimnwin.com', 'claimnwin.png'],
-            2 => ['Econosurance', 'html, css, javascript, jquery, php, laravel', 'http://webencoder.space/demo/demo54/public/ Real: http://econosurance.com', 'eco54.png'],
-            3 => ['My Money Life', 'html, css, javascript, jquery, php, laravel', 'http://webencoder.space/demo/demo62/public/ Admin: http://webencoder.space/demo/demo62/public/login', 'my-money-life.png'],
-            4 => ['Agent Wordpress Plugins', 'html, css, jquery, php', '', 'agent.png'],
-            5 => ['Makhdom', 'html, css, bootstrap, laravel', '', 'mkhdom.png']
+            0 => ['MJ Auto Japan Ltd', 'html, css, javascript, jquery, php, laravel', '', 'mj-auto-ltd.jpg' ],
+            1 => ['Claimnwin', 'html, css, javascript, jquery, php, laravel', 'http://webencoder.space/demo/demo56/public Real: http://claimnwin.com', 'claimnwin.jpg'],
+            2 => ['Econosurance', 'html, css, javascript, jquery, php, laravel', 'http://webencoder.space/demo/demo54/public/ Real: http://econosurance.com', 'eco54.jpg'],
+            3 => ['My Money Life', 'html, css, javascript, jquery, php, laravel', 'http://webencoder.space/demo/demo62/public/ Admin: http://webencoder.space/demo/demo62/public/login', 'my-money-life.jpg'],
+            4 => ['Agent Wordpress Plugins', 'html, css, jquery, php', '', 'agent.jpg'],
+            5 => ['Makhdom', 'html, css, bootstrap, laravel', '', 'mkhdom.jpg']
         ];
 
         foreach($projectContents as $item){

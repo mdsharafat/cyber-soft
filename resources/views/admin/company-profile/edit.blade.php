@@ -187,16 +187,6 @@
                                     </div>
 
                                     <div class="row mg-t-20">
-                                        <div class="col-md-12">
-                                            <div class="nk-int-st">
-                                                <label for="location" class="control-label">{{ 'Location' }}</label>
-                                                <textarea style="padding-top: 10px; padding-bottom: 10px;" class="form-control" name="location" type="text" id="location" rows=5>{{ isset($companyProfile->location) ? $companyProfile->location : ''}}</textarea>
-                                                {!! $errors->first('location', '<p class="help-block">:message</p>') !!}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mg-t-20">
                                         <div class="col-md-6">
                                             <div class="nk-int-st">
                                                 <label for="address" class="control-label">{{ 'Address' }}</label>

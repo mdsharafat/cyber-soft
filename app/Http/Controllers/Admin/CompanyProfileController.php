@@ -38,7 +38,6 @@ class CompanyProfileController extends Controller
         $requestData['email']     = $request->email;
         $requestData['phone']     = $request->phone;
         $requestData['intro']     = $request->intro;
-        $requestData['location']  = $request->location;
         $requestData['address']   = $request->address;
         $requestData['copyright'] = $request->copyright;
         $requestData['fb_link']   = $request->fb_link;

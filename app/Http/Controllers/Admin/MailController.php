@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Subscribe;
 use DB;
-use App\Notifications\NewPostNotification;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailToSubscriber;
 
