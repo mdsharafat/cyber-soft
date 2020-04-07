@@ -5,36 +5,23 @@
 @endsection
 
 @section('main-content')
-    @if(Session::has('commentMessage'))
-        <script type="text/javascript">
-            swal({
-                title:'Success!',
-                text:"{{Session::get('commentMessage')}}",
-                timer:5000,
-                type:'success'
-            }).then((value) => {
-            //location.reload();
-            }).catch(swal.noop);
-        </script>
-    @endif
-
     <!-- BLOG DETAIL -->
     <section id="blog-detail" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                {{-- <div class="col-md-2">
                     <div class="blog-ads-vertical">
                         <h4>Open For Advertising</h4>
                     </div>
                     <div class="blog-ads-vertical">
                         <h4>Open For Advertising</h4>
                     </div>
-                </div>
-                <div class="col-md-10 col-sm-12">
+                </div> --}}
+                <div class="col-md-offset-1 col-md-10 col-sm-12">
                     <div class="blog-detail-thumb">
-                        <div class="blog-ads">
+                        {{-- <div class="blog-ads">
                             <h4>Open For Advertising</h4>
-                        </div>
+                        </div> --}}
                         <div class="author">
                             <div class="author-details">
                                     <div class="author-img">

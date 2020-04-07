@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Subscribe;
-use Mail;
 use DB;
 use App\Notifications\NewPostNotification;
 use Illuminate\Support\Facades\Notification;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailToSubscriber;
 
 class MailController extends Controller
 {
@@ -18,10 +18,11 @@ class MailController extends Controller
     {
         $subscribers = Subscribe::where('status', 1)->get();
         $post        = Post::where('id', $id)->first();
+
         foreach($subscribers as $subscriber){
-            Notification::route('mail', $subscriber->email)
-                ->notify(new NewPostNotification($post));
+            Mail::to($subscriber->email)->send(new SendMailToSubscriber($post));
         }
+
         DB::table('posts')
               ->where('id', $id)
               ->update(['is_email_sent' => 1]);
