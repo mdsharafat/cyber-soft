@@ -111,7 +111,9 @@
                     },
                     success: function (data) {
                         if (data.msg == 'success') {
-                            swal("Thank You!",''+data.text+'', "success")
+                            swal("Thank You!",''+data.text+'', "success");
+                            $(".close").trigger("click");
+                            $("#modalSubscribeForm")[0].reset();
                         } else {
                             swal("Duplicate",''+data.msg+'', "warning");
                         }
@@ -127,6 +129,31 @@
                 return true;
             }
         }
+        $(document).on('click', '.contactFormSubmit', function(){
+            let name    = $('.cf-name').val();
+            let email   = $('.cf-email').val();
+            let message = $('.cf-message').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ url('/contact') }}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    name: name,
+                    email: email,
+                    message: message
+                },
+                success: function (data) {
+                    if (data.msg == 'yes') {
+                        swal("Thank You!",''+data.text+'', "success");
+                        $("#contact-form")[0].reset();
+                    } else {
+                        swal("Error",''+data.msg+'', "warning");
+                    }
+                }
+            });
+        });
     });
 </script>
 @endsection

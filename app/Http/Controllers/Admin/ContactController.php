@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Contact;
 use App\Helpers\UserSystemInfoHelper;
 use DB;
+use Validator;
 
 class ContactController extends Controller
 {
@@ -37,32 +38,36 @@ class ContactController extends Controller
     }
 
     public function contact(Request $request)
-    {
-        $request->validate([
+    {        
+        $validator = Validator::make($request->all(), [
             'name' => 'required|max:60',
             'email' => 'required|email|max:60',
-            'message' => 'required'
+            'message' => 'required',
         ]);
+        if ($validator->fails()) {
+    	    return response()->json(['msg'=>$validator->errors()->all()]);
+        }else{
+            $userSystemInfoHelper   = new UserSystemInfoHelper();
+            $userSystemInfo         =$userSystemInfoHelper->getBrowser();
 
-        $userSystemInfoHelper   = new UserSystemInfoHelper();
-        $userSystemInfo         =$userSystemInfoHelper->getBrowser();
+            $contact              = new Contact();
+            $contact->name        = $request->name;
+            $contact->email       = $request->email;
+            $contact->message     = $request->message;
+            $contact->platform    = $userSystemInfo['platform'];
+            $contact->browser     = $userSystemInfo['name']." Version : ".$userSystemInfo['version'];
+            $contact->user_agent  = $userSystemInfo['userAgent'];
+            $contact->ip          = $request->ip();
+            $contact->country     = geoip()->getLocation($request->ip())->country;
+            $contact->city        = geoip()->getLocation($request->ip())->city;
+            $contact->state       = geoip()->getLocation($request->ip())->state_name;
+            $contact->postal_code = geoip()->getLocation($request->ip())->postal_code;
+            $contact->lat         = geoip()->getLocation($request->ip())->lat;
+            $contact->lon         = geoip()->getLocation($request->ip())->lon;
+            $contact->save();
 
-        $contact              = new Contact();
-        $contact->name        = $request->name;
-        $contact->email       = $request->email;
-        $contact->message     = $request->message;
-        $contact->platform    = $userSystemInfo['platform'];
-        $contact->browser     = $userSystemInfo['name']." Version : ".$userSystemInfo['version'];
-        $contact->user_agent  = $userSystemInfo['userAgent'];
-        $contact->ip          = $request->ip();
-        $contact->country     = geoip()->getLocation($request->ip())->country;
-        $contact->city        = geoip()->getLocation($request->ip())->city;
-        $contact->state       = geoip()->getLocation($request->ip())->state_name;
-        $contact->postal_code = geoip()->getLocation($request->ip())->postal_code;
-        $contact->lat         = geoip()->getLocation($request->ip())->lat;
-        $contact->lon         = geoip()->getLocation($request->ip())->lon;
-        $contact->save();
-        
-        return redirect()->back()->with('flash_message', 'Thank You. Message submitted.');
+            return response()->json(['msg'=>'yes', 'text'=>'Thank You. Message sent successfully.']);
+        }
+    
     }
 }

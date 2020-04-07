@@ -21,6 +21,12 @@ Route::get('/tag/{slug}', 'Frontend\FrontendController@postByTag');
 Route::get('/projects', 'Frontend\FrontendController@projects');
 Route::POST('/search-post', 'Frontend\FrontendController@searchPost');
 
+Route::POST('/subscribe', 'Admin\SubscribeController@subscribe');
+Route::POST('/contact', 'Admin\ContactController@contact');
+Route::POST('/comment', 'Admin\CommentsController@comment');
+
+
+
 Route::group(['prefix' => 'C127Wp-aqlg-SZ'], function() {
     Auth::routes([
         'register' => false,
@@ -30,10 +36,7 @@ Route::group(['prefix' => 'C127Wp-aqlg-SZ'], function() {
 });
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'Admin\AdminController@index');
-    Route::POST('/subscribe', 'Admin\SubscribeController@subscribe');
     Route::get('/admin/subscriber-lists', 'Admin\SubscribeController@subscriberLists');
-    Route::POST('/contact', 'Admin\ContactController@contact');
-    Route::POST('/comment', 'Admin\CommentsController@comment');
     Route::get('/admin/activate-subscriber/{id}', 'Admin\SubscribeController@activate');
     Route::get('/admin/deactivate-subscriber/{id}', 'Admin\SubscribeController@deactivate');
     Route::get('/admin/contact-messages', 'Admin\ContactController@index');

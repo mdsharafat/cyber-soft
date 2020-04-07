@@ -1,6 +1,6 @@
 <section id="contact" data-stellar-background-ratio="0.5">
     <div class="container">
-        @if(Session::has('flash_message'))
+        {{-- @if(Session::has('flash_message'))
             <script type="text/javascript">
                 swal({
                     title:'Success!',
@@ -11,7 +11,7 @@
                 //location.reload();
                 }).catch(swal.noop);
             </script>
-        @endif
+        @endif --}}
         <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="section-title">
@@ -22,25 +22,24 @@
 
                 <div class="col-md-8 col-sm-8">
                     <!-- CONTACT FORM HERE -->
-                    <form id="contact-form" role="form" action="{{ url('/contact') }}" method="post">
-                        @csrf
+                    <form id="contact-form" role="form">
                         <div class="col-md-6 col-sm-6">
-                            <input type="text" class="form-control" placeholder="Full Name" id="cf-name"
-                                    name="name" required="required">
+                            <input type="text" class="form-control cf-name" placeholder="Full Name" id="cf-name"
+                                    name="name" required>
                         </div>
 
                         <div class="col-md-6 col-sm-6">
-                            <input type="email" class="form-control" placeholder="Your Email" id="cf-email"
-                                    name="email" required="reqiured">
+                            <input type="email" class="form-control cf-email" placeholder="Your Email" id="cf-email"
+                                    name="email" required>
                         </div>
 
                         <div class="col-md-12 col-sm-12">
-                            <textarea class="form-control" rows="6" placeholder="Your requirements"
-                                    id="cf-message" name="message" required="required"></textarea>
+                            <textarea class="form-control cf-message" rows="6" placeholder="Your requirements"
+                                    id="cf-message" name="message" required></textarea>
                         </div>
 
                         <div class="col-md-4 col-sm-12">
-                            <input type="submit" class="form-control" name="submit" value="Send Message">
+                            <button type="button" class="contactFormSubmit btn section-btn" id="contactFormSubmit" name="submit">Send Message</button>
                         </div>
 
                     </form>

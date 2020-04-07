@@ -23,7 +23,7 @@ class NecessaryTableSeeder extends Seeder
 
         // user table
         $user           = new User;
-        $user->name     = 'Mohammad Sharafat Hossain';
+        $user->name     = 'Mohammad Sharafat';
         $user->email    = 'sharafat.sohan047@gmail.com';
         $user->password = Hash::make('Snkadw)#@psgHS8@');
         $user->status   = 1;

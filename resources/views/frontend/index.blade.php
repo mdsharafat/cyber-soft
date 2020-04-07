@@ -99,10 +99,10 @@
                                     <h3 class="blog-heading"><a href="{{ url('/post/'.$post->slug) }}">{{ $post->title }}</a></h3>
                                     <p>{!! \Illuminate\Support\Str::words($post->short_desc, 10,'....')  !!}</p>
                                     <div class="row">
-                                        <div class="col-md-6 pull-left">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 pull-left">
                                             <a href="{{ url('/post/'.$post->slug) }}" target="__blank" class="btn section-btn">Read article</a>
                                         </div>
-                                        <div class="col-md-6 pull-right">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 pull-right">
                                             <small class="mg-t-20"><img class="front-author-img" src="{{ asset('storage/users/'.$post->user->pro_pic) }}"> &nbsp; {{ $post->user->name }}</small>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                                     <img src="{{ asset('assets/frontend/images/work-image1.jpg') }}" class="img-responsive" alt="Work">
 
                                     <div class="work-info">
-                                            <h3>{{ $proect->title }}</h3>
+                                            <h3>{{ $project->title }}</h3>
                                             <small>{{ $project->short_desc }}</small>
                                     </div>
                                 </a>
@@ -232,7 +232,9 @@
                     },
                     success: function (data) {
                         if (data.msg == 'success') {
-                            swal("Thank You!",''+data.text+'', "success")
+                            swal("Thank You!",''+data.text+'', "success");
+                            $(".close").trigger("click");
+                            $("#modalSubscribeForm")[0].reset();
                         } else {
                             swal("Duplicate",''+data.msg+'', "warning");
                         }
@@ -248,6 +250,31 @@
                 return true;
             }
         }
+        $(document).on('click', '.contactFormSubmit', function(){
+            let name    = $('.cf-name').val();
+            let email   = $('.cf-email').val();
+            let message = $('.cf-message').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ url('/contact') }}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    name: name,
+                    email: email,
+                    message: message
+                },
+                success: function (data) {
+                    if (data.msg == 'yes') {
+                        swal("Thank You!",''+data.text+'', "success");
+                        $("#contact-form")[0].reset();
+                    } else {
+                        swal("Error",''+data.msg+'', "warning");
+                    }
+                }
+            });
         });
+    });
 </script>
 @endsection

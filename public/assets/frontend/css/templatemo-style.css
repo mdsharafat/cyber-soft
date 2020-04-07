@@ -1141,19 +1141,23 @@ http://www.templatemo.com/tm-509-hydro
       margin-right: 0;
     }
 
-    .media-body .media-blog-small {
+    /* .media-body .media-blog-small {
       display: block;
     }
 
     .media-body .pull-right {
       float: none !important;
-    }
+    } */
   }
 
   @media screen and (max-width: 639px) {
 
     h1 {
       font-size: 2em;
+    }
+
+    #blog-header h2 {
+      font-size: 1.5em;
     }
 
     .media.blog-thumb .media-left {
@@ -1165,12 +1169,12 @@ http://www.templatemo.com/tm-509-hydro
       bottom: 6em;
     }
 
-    .media-body .media-blog-small {
+    /* .media-body .media-blog-small {
       display: block;
     }
 
     .media-body .pull-right {
       float: none !important;
-    }
+    } */
     
   }

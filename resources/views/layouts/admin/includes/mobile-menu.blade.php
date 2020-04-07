@@ -37,6 +37,14 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li><a data-toggle="collapse" data-target="#demoprojects">Projects</a>
+                                <ul id="demoprojects" class="collapse dropdown-header-top">
+                                    <li><a href="{{ url('/admin/projects/create') }}">Add Project</a>
+                                    </li>
+                                    <li><a href="{{ url('/admin/projects') }}">Project List</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li><a data-toggle="collapse" data-target="#demo">Others</a>
                                 <ul id="demo" class="collapse dropdown-header-top">
                                     <li><a href="{{ url('admin/categories') }}">Categories</a>

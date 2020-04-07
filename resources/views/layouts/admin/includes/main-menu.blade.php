@@ -13,6 +13,8 @@
                     </li>
                     <li><a data-toggle="tab" href="#Comments"><i class="notika-icon notika-windows"></i> Comments</a>
                     </li>
+                    <li><a data-toggle="tab" href="#Projects"><i class="notika-icon notika-form"></i> Projects</a>
+                    </li>
                     <li><a data-toggle="tab" href="#Others"><i class="notika-icon notika-app"></i> Others</a>
                     </li>
                     <li><a data-toggle="tab" href="#Account"><i class="notika-icon notika-support"></i> Account</a>
@@ -46,6 +48,14 @@
                             <li><a href="{{ url('/admin/approved-comments') }}">Approved List</a>
                             </li>
                             <li><a href="{{ url('/admin/pending-comments') }}">Pending List</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="Projects" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        <ul class="notika-main-menu-dropdown">
+                            <li><a href="{{ url('/admin/projects/create') }}">Add Project</a>
+                            </li>
+                            <li><a href="{{ url('/admin/projects') }}">Project List</a>
                             </li>
                         </ul>
                     </div>

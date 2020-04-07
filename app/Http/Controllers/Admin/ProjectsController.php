@@ -49,7 +49,6 @@ class ProjectsController extends Controller
     {
         $request->validate([
             'title' => 'required|unique:projects',
-            'url' => 'required|unique:projects',
         ]);
         
         $project = new Project();
@@ -86,11 +85,7 @@ class ProjectsController extends Controller
             'title' => [
                 'required',
                 Rule::unique('projects')->ignore(Project::find($id)),
-            ],
-            'url' => [
-                'required',
-                Rule::unique('projects')->ignore(Project::find($id)),
-            ],
+            ]
         ]);
 
         $project = Project::findOrFail($id);

@@ -1,7 +1,6 @@
 <section class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content modal-popup">
-
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -27,7 +26,7 @@
                                     <!-- TAB PANES -->
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
-                                            <form role="form" action="">
+                                            <form id="modalSubscribeForm" role="form" action="">
                                                 <input type="email" class="form-control email" id="email" name="email"
                                                         placeholder="Email" required>
                                                 <span class="error text-danger" id="invalid_email">Email-id is invalid</span>

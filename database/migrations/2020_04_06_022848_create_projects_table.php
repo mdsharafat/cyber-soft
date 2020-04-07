@@ -13,7 +13,8 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+            $table->id();
             $table->string('title')->unique();
             $table->text('short_desc')->nullable();
             $table->string('url')->unique();

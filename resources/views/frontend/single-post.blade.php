@@ -76,10 +76,10 @@
                                     <h3 class="blog-heading"><a href="{{ url('/post/'.$relatedPost->slug) }}">{{ $relatedPost->title }}</a></h3>
                                     <p>{!! \Illuminate\Support\Str::words($relatedPost->short_desc, 10,'....')  !!}</p>
                                     <div class="row">
-                                        <div class="col-md-6 pull-left">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 pull-left">
                                             <a href="{{ url('/post/'.$relatedPost->slug) }}" target="__blank" class="btn section-btn">Read article</a>
                                         </div>
-                                        <div class="col-md-6 pull-right">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 pull-right">
                                             <small class="mg-t-20"><img class="front-author-img" src="{{ asset('storage/users/'.$relatedPost->user->pro_pic) }}"> &nbsp; {{ $relatedPost->user->name }}</small>
                                         </div>
                                     </div>
@@ -115,24 +115,22 @@
                             <div class="panel-body">
                                 <div class="main-comment-form">
                                     <p class="comment-note text-left"><span class="text-danger">*</span>We will not publish your email address.</p>
-                                    <form action="{{ url('/comment') }}" method="post" id="comment-form" enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="hidden" name="post" value="{{ $post->slug }}">
+                                    <form id="comment-form" class="comment-form" enctype="multipart/form-data">
+                                        <input type="hidden" class="post-name" name="post" value="{{ $post->slug }}">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control cf-name" placeholder="Name" id="cf-name" name="name" required="required">
+                                                <input type="text" class="form-control cm-name" placeholder="Name" id="cm-name" name="name" required="required">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="email" class="form-control cf-email" placeholder="Email" id="cf-name" name="email" required="required">
+                                                <input type="email" class="form-control cm-email" placeholder="Email" id="cm-name" name="email" required="required">
                                             </div>
                                         </div>
                                         <br>
-                                        <textarea class="form-control cf-comment" required placeholder="Write a comment..." rows="5" name="comment"></textarea>
+                                        <textarea class="form-control cm-comment" required placeholder="Write a comment..." rows="5" name="comment"></textarea>
                                         <br>
-                                        <button type="submit" class="btn section-btn pull-right submit-comment">Submit</button>
+                                        <button type="button" class="btn section-btn pull-right submit-comment">Submit</button>
                                     </form>
                                 </div>
-                                
                                 <div class="clearfix"></div>
                                 <hr>
                                 <ul class="media-list">
@@ -158,7 +156,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -197,7 +194,9 @@
                     },
                     success: function (data) {
                         if (data.msg == 'success') {
-                            swal("Thank You!",''+data.text+'', "success")
+                            swal("Thank You!",''+data.text+'', "success");
+                            $(".close").trigger("click");
+                            $("#modalSubscribeForm")[0].reset();
                         } else {
                             swal("Duplicate",''+data.msg+'', "warning");
                         }
@@ -213,6 +212,60 @@
                 return true;
             }
         }
+        $(document).on('click', '.contactFormSubmit', function(){
+            let name    = $('.cf-name').val();
+            let email   = $('.cf-email').val();
+            let message = $('.cf-message').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ url('/contact') }}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    name: name,
+                    email: email,
+                    message: message
+                },
+                success: function (data) {
+                    if (data.msg == 'yes') {
+                        swal("Thank You!",''+data.text+'', "success");
+                        $("#contact-form")[0].reset();
+                    } else {
+                        swal("Error",''+data.msg+'', "warning");
+                    }
+                }
+            });
+        });
+        $(document).on('click', '.submit-comment', function(){
+            let name    = $('.cm-name').val();
+            let email   = $('.cm-email').val();
+            let comment = $('.cm-comment').val();
+            let post    = $('.post-name').val();
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ url('/comment') }}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    name: name,
+                    email: email,
+                    comment: comment,
+                    post: post
+                },
+                success: function (data) {
+                    if (data.msg == 'comment-success') {
+                        swal("Thank You!",''+data.text+'', "success");
+                        $("#comment-form")[0].reset();
+                    } else {
+                        swal("Error",''+data.msg+'', "warning");
+                    }
+                }
+            });
+
+        })
     });
 </script>
 @endsection
